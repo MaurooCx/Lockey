@@ -22,5 +22,5 @@ services:
       - .:/lockey
     working_dir: /lockey
     command: >
-      && npm install 
+      npm install 
       && npm run dev
