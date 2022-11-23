@@ -21,6 +21,4 @@ services:
     volumes:
       - .:/lockey
     working_dir: /lockey
-    command: >
-      npm install 
-      && npm run dev
+    command: sh -c "npm install && npm run dev"
