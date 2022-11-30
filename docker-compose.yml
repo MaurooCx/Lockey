@@ -20,7 +20,7 @@ services:
     volumes:
       - .:/lockey
     working_dir: /lockey
-    command: sh -c "npm install && sass sass:public/stylesheets && npm start"
+    command: sh -c "npm install && npm start"
     environment:
       - 'MYSQL_HOST=${MYSQL_HOST}'
       - 'MYSQL_PORT=${MYSQL_PORT}'
