@@ -1,37 +1,54 @@
 extends layout_sign
 
 block sign_block
-	main
-		p signup
-		section#Registro
-			form 
-				div.FormularioGrupo#GrupoNombre
-					label Nombre completo:
-					div.FormularioInput
-						input(type="text")
-					p.FormularioError Error 
-				div.FormularioGrupo#GrupoCelular
-					label Numero de Celular:
-					div.FormularioInput
-						input(type="tel")
-					p.FormularioError Error
-				div.FormularioGrupo#GrupoCorreo
-					label Correo electronico:
-					div.FormularioInput
-						input(type="email")
-					p.FormularioError Error
-				div.FormularioGrupo#GrupoContrasena
-					label Contraseña:
-					div.FormularioInput
-						input(type="password")
-					p.FormularioError Error
-				div.FormularioGrupo#GrupoConfirmacionContrasena
-					label Confirmar contraseña:
-					div.FormularioInput
-						input(type="password")
-					p.FormularioError  Error
-				div.BtnEnviar
-					button.BtnFormulario(type="submit") Enviar
-					p.Exito#MensajeDeExito Formulario enviado exitosamente!
+	main.d-flex.align-items-center.p-5.justify-content-center.h-auto
+		div
+		.row.pb-5
+			img(src="/images/sendiit.png")
+			section#Registro
+				form 
+					div.form-floating.mb-3
+						input.form-control(type="email" id="floatingInput" placeholder="name@example.com")
+						label(for="floatingInput") Mombre completo
+
+					div.FormularioGrupo#GrupoNombre
+						label Nombre completo:
+						div.FormularioInput
+							input(type="text")
+						p.FormularioError Error 
+					div.FormularioGrupo#GrupoCelular
+						label Numero de Celular:
+						div.FormularioInput
+							input(type="tel")
+						p.FormularioError Error
+					div.FormularioGrupo#GrupoCorreo
+						label Correo electronico:
+						div.FormularioInput
+							input(type="email")
+						p.FormularioError Error
+					div.FormularioGrupo#GrupoContrasena
+						label Contraseña:
+						div.FormularioInput
+							input(type="password")
+						p.FormularioError Error
+					div.FormularioGrupo#GrupoConfirmacionContrasena
+						label Confirmar contraseña:
+						div.FormularioInput
+							input(type="password")
+						p.FormularioError  Error
+					div.BtnEnviar
+						button.BtnFormulario(type="submit") Enviar
+						p.Exito#MensajeDeExito Formulario enviado exitosamente!
+
+					div.form-floating.mb-3
+						input.form-control(type="email" id="floatingInput" placeholder="name@example.com")
+						label(for="floatingInput") Email address
+					
+					div.form-floating
+						input.form-control(type="password" id="floatingPassword" placeholder="Password")
+						label(for="floatingPassword") Password
+						
+
+					
 
 		
