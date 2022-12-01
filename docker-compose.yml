@@ -2,23 +2,32 @@ version: '3'
 
 services:
   mysql-development:
-    image: mysql:8.0.31
+    image: 'mysql:${MYSQL_VERSION}'
     environment:
-      MYSQL_RANDOM_ROOT_PASSWORD: yes
-      MYSQL_DATABASE: lockey_db
-      MYSQL_USER: lockey
-      MYSQL_PASSWORD: In2TheUnknown.
+      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
     ports:
-      - "3308:3306"
-    # volumes:
-    #   - ./.mysql_data:/var/lib/mysql
-  lockey:
-    image: node:18.12.1-alpine3.15
+      - '${MYSQL_PORT}:3306'
+    volumes:
+      # - ./.mysql:/var/lib/mysql
+      - ./init.sql:/tmp/init.sql
+    command: --init-file /tmp/init.sql
+  node-development:
+    image: 'node:${NODE_VERSION}'
     depends_on:
       - mysql-development
     ports:
-      - "3000:3000"
+      - "${SERVER_PORT}:${NODE_PORT}"
     volumes:
-      - .:/app
-    working_dir: /app
-    command: sh -c "npm install && npm run dev"
+      - .:/lockey
+    working_dir: /lockey
+    command: sh -c "npm install && npm start"
+    environment:
+      - 'SERVER_PORT=${SERVER_PORT}'
+      - 'MYSQL_HOST=${MYSQL_HOST}'
+      - 'MYSQL_PORT=${MYSQL_PORT}'
+      - 'MYSQL_DATABASE=${MYSQL_DATABASE}'
+      - 'MYSQL_USER=${MYSQL_USER}'
+      - 'MYSQL_PASSWORD=${MYSQL_PASSWORD}'
+      - 'NODE_ENV=${NODE_ENV}'
+      - 'PORT=${NODE_PORT}'
+      - 'DEBUG=${DEBUG}'
