@@ -1,0 +1,27 @@
+// Here goes custom styles
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap');
+
+$primary: #f9d950;
+$secondary: #212e46;
+$success: #dddddd; 
+
+$theme-colors: (
+  "primary": $primary,
+  "danger": $danger
+);
+
+body{
+	font-family: 'Inter';
+	padding: 0px; 
+	margin: 0px; 
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif}
+
+button{
+    padding-top: 20px;
+    padding-bottom: 20px; 
+    font-weight: bolder;  
+    border-radius: 52px;  
+    font-size: 20px;  
+    border-color: transparent;
+    color: #212e46;  
+    letter-spacing: 2px}

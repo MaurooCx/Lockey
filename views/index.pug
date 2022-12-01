@@ -1,10 +1,14 @@
 extends layout
 
 block content
-  main.col.align-items-center.p-5
-    div.row.pb-5
-      button.shadow.btn-lg.pri_color(type="button") RASTREAR ENVÍO  
-    div.row.pb-5
-      button.shadow.btn-lg.sec_color(type="button") INGRESAR
-    div.row.pb-5
-      button.shadow.btn-lg.alt_color(type="button") CREAR CUENTA
+  main.d-flex.align-items-center.p-5.justify-content-center.h-auto
+    div
+      .row.pb-5 
+        img(src="/images/sendiit.png")
+      .row.p-4
+        .row.pb-5
+          button.shadow.btn-lg.bg-primary(type="button") RASTREAR ENVÍO  
+        .row.pb-5
+          button.shadow.btn-lg.bg-secondary(type="button") INGRESAR
+        .row.pb-5
+          button.shadow.btn-lg.bg-success(type="button") CREAR CUENTA
