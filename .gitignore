@@ -31,3 +31,9 @@ node_modules
 
 # Debug log from npm
 npm-debug.log
+
+# Maps
+*.map
+
+# Ignore css generated
+public/stylesheets/*.css
