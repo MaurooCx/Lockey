@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/identificacion', function(req, res, next) {
-	res.render('login');
+	res.render('signin');
 });
 
 router.get('/registro', function(req, res, next) {

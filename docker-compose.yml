@@ -22,6 +22,7 @@ services:
     working_dir: /lockey
     command: sh -c "npm install && npm start"
     environment:
+      - 'SERVER_PORT=${SERVER_PORT}'
       - 'MYSQL_HOST=${MYSQL_HOST}'
       - 'MYSQL_PORT=${MYSQL_PORT}'
       - 'MYSQL_DATABASE=${MYSQL_DATABASE}'
