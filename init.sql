@@ -268,10 +268,6 @@ CREATE INDEX `fk_routedetail_route_idx` ON `lockey_db`.`RouteDetail` (`id_rte` A
 
 CREATE INDEX `fk_routedetail_locker_idx` ON `lockey_db`.`RouteDetail` (`id_lkr` ASC) VISIBLE;
 
-CREATE USER 'lockey_usr' IDENTIFIED BY 'lockey_pwd_issi_pz.';
-
-GRANT ALL ON `lockey_db.`.* TO 'lockey_usr';
-
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
