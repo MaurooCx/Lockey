@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'expres' });
 });
 
 router.get('/identificacion', function(req, res, next) {
@@ -11,6 +11,10 @@ router.get('/identificacion', function(req, res, next) {
 });
 
 router.get('/registro', function(req, res, next) {
+	res.render('signup');
+});
+
+router.post('/registro', function(req, res, next) {
 	res.render('signup');
 });
 

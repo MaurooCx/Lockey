@@ -3,9 +3,9 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"start": "node ./bin/www",
+		"start": "nodemon ./bin/www",
 		"dev": "nodemon ./bin/www",
-		"prestart": "sass ./sass:./public/stylesheets"
+		"prestart": "sass --watch --poll ./sass:./public/stylesheets &"
 	},
 	"dependencies": {
 		"body-parser": "^1.20.1",
@@ -20,5 +20,17 @@
 	"devDependencies": {
 		"nodemon": "^2.0.20",
 		"sass": "^1.56.1"
+	},
+	"nodemonConfig": {
+		"legacyWatch": true,
+		"delay": 1500,
+		"ignore": [ "node_modules", "public" ],
+		"ext": "js,scss,env",
+		"watch": [
+			"."
+		],
+		"execMap": {
+			"scss": "sass ./sass:./public/stylesheets"
+		}
 	}
 }
