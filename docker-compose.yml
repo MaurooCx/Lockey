@@ -4,7 +4,7 @@ services:
   mysql-development:
     image: 'mysql:${MYSQL_VERSION}'
     environment:
-      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
     ports:
       - '${MYSQL_PORT}:3306'
     volumes:
@@ -16,11 +16,11 @@ services:
     depends_on:
       - mysql-development
     ports:
-      - "${SERVER_PORT}:${NODE_PORT}"
+      - '${SERVER_PORT}:${NODE_PORT}'
     volumes:
       - .:/lockey
     working_dir: /lockey
-    command: sh -c "npm install && npm start"
+    command: sh -c 'npm install && npm start'
     environment:
       - 'SERVER_PORT=${SERVER_PORT}'
       - 'MYSQL_HOST=${MYSQL_HOST}'

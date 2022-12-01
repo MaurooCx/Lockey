@@ -8,19 +8,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema lockey_db.
+-- Schema lockey_db
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema lockey_db.
+-- Schema lockey_db
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `lockey_db.` DEFAULT CHARACTER SET utf8 ;
-USE `lockey_db.` ;
+CREATE SCHEMA IF NOT EXISTS `lockey_db` DEFAULT CHARACTER SET utf8 ;
+USE `lockey_db` ;
 
 -- -----------------------------------------------------
--- Table `lockey_db.`.`User`
+-- Table `lockey_db`.`User`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `lockey_db.`.`User` (
+CREATE TABLE IF NOT EXISTS `lockey_db`.`User` (
   `id_usr` INT NOT NULL AUTO_INCREMENT,
   `nm_usr` VARCHAR(45) NOT NULL,
   `em_usr` VARCHAR(45) NOT NULL,
@@ -30,13 +30,13 @@ CREATE TABLE IF NOT EXISTS `lockey_db.`.`User` (
   PRIMARY KEY (`id_usr`))
 ENGINE = InnoDB;
 
-CREATE UNIQUE INDEX `id_user_UNIQUE` ON `lockey_db.`.`User` (`id_usr` ASC) VISIBLE;
+CREATE UNIQUE INDEX `id_user_UNIQUE` ON `lockey_db`.`User` (`id_usr` ASC) VISIBLE;
 
 
 -- -----------------------------------------------------
--- Table `lockey_db.`.`Wallet`
+-- Table `lockey_db`.`Wallet`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `lockey_db.`.`Wallet` (
+CREATE TABLE IF NOT EXISTS `lockey_db`.`Wallet` (
   `id_wal` INT NOT NULL,
   `id_usr` INT NOT NULL,
   `nknm_wal` VARCHAR(45) NOT NULL,
@@ -46,18 +46,18 @@ CREATE TABLE IF NOT EXISTS `lockey_db.`.`Wallet` (
   PRIMARY KEY (`id_wal`),
   CONSTRAINT `fk_wallet_user`
     FOREIGN KEY (`id_usr`)
-    REFERENCES `lockey_db.`.`User` (`id_usr`)
+    REFERENCES `lockey_db`.`User` (`id_usr`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_wallet_user_idx` ON `lockey_db.`.`Wallet` (`id_usr` ASC) VISIBLE;
+CREATE INDEX `fk_wallet_user_idx` ON `lockey_db`.`Wallet` (`id_usr` ASC) VISIBLE;
 
 
 -- -----------------------------------------------------
--- Table `lockey_db.`.`ShippingType`
+-- Table `lockey_db`.`ShippingType`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `lockey_db.`.`ShippingType` (
+CREATE TABLE IF NOT EXISTS `lockey_db`.`ShippingType` (
   `id_shpgtype` INT NOT NULL,
   `nm_shpgtype` VARCHAR(45) NOT NULL,
   `time_shpgtype` TIME NOT NULL,
@@ -66,9 +66,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `lockey_db.`.`Shipping`
+-- Table `lockey_db`.`Shipping`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `lockey_db.`.`Shipping` (
+CREATE TABLE IF NOT EXISTS `lockey_db`.`Shipping` (
   `trk_shpg` INT NOT NULL,
   `ownr_shpg` INT NOT NULL,
   `id_shpgtype` INT NOT NULL,
@@ -82,34 +82,34 @@ CREATE TABLE IF NOT EXISTS `lockey_db.`.`Shipping` (
   PRIMARY KEY (`trk_shpg`),
   CONSTRAINT `fk_shipping_user`
     FOREIGN KEY (`ownr_shpg`)
-    REFERENCES `lockey_db.`.`User` (`id_usr`)
+    REFERENCES `lockey_db`.`User` (`id_usr`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_shipping_wallet`
     FOREIGN KEY (`id_wal`)
-    REFERENCES `lockey_db.`.`Wallet` (`id_wal`)
+    REFERENCES `lockey_db`.`Wallet` (`id_wal`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_shipping)shippingtype`
     FOREIGN KEY (`id_shpgtype`)
-    REFERENCES `lockey_db.`.`ShippingType` (`id_shpgtype`)
+    REFERENCES `lockey_db`.`ShippingType` (`id_shpgtype`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE UNIQUE INDEX `trk_shpg_UNIQUE` ON `lockey_db.`.`Shipping` (`trk_shpg` ASC) VISIBLE;
+CREATE UNIQUE INDEX `trk_shpg_UNIQUE` ON `lockey_db`.`Shipping` (`trk_shpg` ASC) VISIBLE;
 
-CREATE INDEX `fk_shipping_user_idx` ON `lockey_db.`.`Shipping` (`ownr_shpg` ASC) VISIBLE;
+CREATE INDEX `fk_shipping_user_idx` ON `lockey_db`.`Shipping` (`ownr_shpg` ASC) VISIBLE;
 
-CREATE INDEX `fk_shipping_wallet_idx` ON `lockey_db.`.`Shipping` (`id_wal` ASC) VISIBLE;
+CREATE INDEX `fk_shipping_wallet_idx` ON `lockey_db`.`Shipping` (`id_wal` ASC) VISIBLE;
 
-CREATE INDEX `fk_shipping)shippingtype_idx` ON `lockey_db.`.`Shipping` (`id_shpgtype` ASC) VISIBLE;
+CREATE INDEX `fk_shipping)shippingtype_idx` ON `lockey_db`.`Shipping` (`id_shpgtype` ASC) VISIBLE;
 
 
 -- -----------------------------------------------------
--- Table `lockey_db.`.`Locker`
+-- Table `lockey_db`.`Locker`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `lockey_db.`.`Locker` (
+CREATE TABLE IF NOT EXISTS `lockey_db`.`Locker` (
   `id_lkr` INT NOT NULL,
   `nm_lkr` VARCHAR(45) NOT NULL,
   `dir_lkr` VARCHAR(45) NOT NULL,
@@ -118,9 +118,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `lockey_db.`.`DoorType`
+-- Table `lockey_db`.`DoorType`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `lockey_db.`.`DoorType` (
+CREATE TABLE IF NOT EXISTS `lockey_db`.`DoorType` (
   `id_drtype` INT NOT NULL,
   `nm_drtype` VARCHAR(45) NOT NULL,
   `hgt_drtype` VARCHAR(45) NOT NULL,
@@ -132,9 +132,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `lockey_db.`.`Door`
+-- Table `lockey_db`.`Door`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `lockey_db.`.`Door` (
+CREATE TABLE IF NOT EXISTS `lockey_db`.`Door` (
   `id_door` INT NOT NULL AUTO_INCREMENT,
   `id_lkr` INT NOT NULL,
   `id_drtype` INT NOT NULL,
@@ -143,25 +143,25 @@ CREATE TABLE IF NOT EXISTS `lockey_db.`.`Door` (
   PRIMARY KEY (`id_door`),
   CONSTRAINT `fk_door_locker`
     FOREIGN KEY (`id_lkr`)
-    REFERENCES `lockey_db.`.`Locker` (`id_lkr`)
+    REFERENCES `lockey_db`.`Locker` (`id_lkr`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_door_doortype`
     FOREIGN KEY (`id_drtype`)
-    REFERENCES `lockey_db.`.`DoorType` (`id_drtype`)
+    REFERENCES `lockey_db`.`DoorType` (`id_drtype`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_locker_idx` ON `lockey_db.`.`Door` (`id_lkr` ASC) VISIBLE;
+CREATE INDEX `fk_locker_idx` ON `lockey_db`.`Door` (`id_lkr` ASC) VISIBLE;
 
-CREATE INDEX `fk_door_doortype_idx` ON `lockey_db.`.`Door` (`id_drtype` ASC) VISIBLE;
+CREATE INDEX `fk_door_doortype_idx` ON `lockey_db`.`Door` (`id_drtype` ASC) VISIBLE;
 
 
 -- -----------------------------------------------------
--- Table `lockey_db.`.`Shipping-Door`
+-- Table `lockey_db`.`Shipping-Door`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `lockey_db.`.`Shipping-Door` (
+CREATE TABLE IF NOT EXISTS `lockey_db`.`Shipping-Door` (
   `id_shpgdr` INT NOT NULL,
   `id_door` INT NOT NULL,
   `trk_shpg` INT NOT NULL,
@@ -174,25 +174,25 @@ CREATE TABLE IF NOT EXISTS `lockey_db.`.`Shipping-Door` (
   PRIMARY KEY (`id_shpgdr`),
   CONSTRAINT `fk_shipping-door_shipping`
     FOREIGN KEY (`trk_shpg`)
-    REFERENCES `lockey_db.`.`Shipping` (`trk_shpg`)
+    REFERENCES `lockey_db`.`Shipping` (`trk_shpg`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_shipping-door_door`
     FOREIGN KEY (`id_door`)
-    REFERENCES `lockey_db.`.`Door` (`id_door`)
+    REFERENCES `lockey_db`.`Door` (`id_door`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_shipping-door_shipping_idx` ON `lockey_db.`.`Shipping-Door` (`trk_shpg` ASC) VISIBLE;
+CREATE INDEX `fk_shipping-door_shipping_idx` ON `lockey_db`.`Shipping-Door` (`trk_shpg` ASC) VISIBLE;
 
-CREATE INDEX `fk_shipping-door_door_idx` ON `lockey_db.`.`Shipping-Door` (`id_door` ASC) VISIBLE;
+CREATE INDEX `fk_shipping-door_door_idx` ON `lockey_db`.`Shipping-Door` (`id_door` ASC) VISIBLE;
 
 
 -- -----------------------------------------------------
--- Table `lockey_db.`.`Report`
+-- Table `lockey_db`.`Report`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `lockey_db.`.`Report` (
+CREATE TABLE IF NOT EXISTS `lockey_db`.`Report` (
   `id_rpt` INT NOT NULL,
   `id_usr` INT NOT NULL,
   `id_door` INT NOT NULL,
@@ -202,32 +202,32 @@ CREATE TABLE IF NOT EXISTS `lockey_db.`.`Report` (
   PRIMARY KEY (`id_rpt`),
   CONSTRAINT `fk_report_user`
     FOREIGN KEY (`id_usr`)
-    REFERENCES `lockey_db.`.`User` (`id_usr`)
+    REFERENCES `lockey_db`.`User` (`id_usr`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_report_door`
     FOREIGN KEY (`id_door`)
-    REFERENCES `lockey_db.`.`Door` (`id_door`)
+    REFERENCES `lockey_db`.`Door` (`id_door`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_report_shipping`
     FOREIGN KEY (`trk_shpg`)
-    REFERENCES `lockey_db.`.`Shipping` (`trk_shpg`)
+    REFERENCES `lockey_db`.`Shipping` (`trk_shpg`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_report_user_idx` ON `lockey_db.`.`Report` (`id_usr` ASC) VISIBLE;
+CREATE INDEX `fk_report_user_idx` ON `lockey_db`.`Report` (`id_usr` ASC) VISIBLE;
 
-CREATE INDEX `fk_report_door_idx` ON `lockey_db.`.`Report` (`id_door` ASC) VISIBLE;
+CREATE INDEX `fk_report_door_idx` ON `lockey_db`.`Report` (`id_door` ASC) VISIBLE;
 
-CREATE INDEX `fk_report_shipping_idx` ON `lockey_db.`.`Report` (`trk_shpg` ASC) VISIBLE;
+CREATE INDEX `fk_report_shipping_idx` ON `lockey_db`.`Report` (`trk_shpg` ASC) VISIBLE;
 
 
 -- -----------------------------------------------------
--- Table `lockey_db.`.`Route`
+-- Table `lockey_db`.`Route`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `lockey_db.`.`Route` (
+CREATE TABLE IF NOT EXISTS `lockey_db`.`Route` (
   `id_rte` INT NOT NULL,
   `id_usr` INT NOT NULL,
   `date_rte` DATETIME NOT NULL,
@@ -235,18 +235,18 @@ CREATE TABLE IF NOT EXISTS `lockey_db.`.`Route` (
   PRIMARY KEY (`id_rte`),
   CONSTRAINT `fk_route_user`
     FOREIGN KEY (`id_usr`)
-    REFERENCES `lockey_db.`.`User` (`id_usr`)
+    REFERENCES `lockey_db`.`User` (`id_usr`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_route_user_idx` ON `lockey_db.`.`Route` (`id_usr` ASC) VISIBLE;
+CREATE INDEX `fk_route_user_idx` ON `lockey_db`.`Route` (`id_usr` ASC) VISIBLE;
 
 
 -- -----------------------------------------------------
--- Table `lockey_db.`.`RouteDetail`
+-- Table `lockey_db`.`RouteDetail`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `lockey_db.`.`RouteDetail` (
+CREATE TABLE IF NOT EXISTS `lockey_db`.`RouteDetail` (
   `id_rtedtl` INT NOT NULL,
   `id_rte` INT NOT NULL,
   `id_lkr` INT NOT NULL,
@@ -254,21 +254,25 @@ CREATE TABLE IF NOT EXISTS `lockey_db.`.`RouteDetail` (
   PRIMARY KEY (`id_rtedtl`),
   CONSTRAINT `fk_routedetail_route`
     FOREIGN KEY (`id_rte`)
-    REFERENCES `lockey_db.`.`Route` (`id_rte`)
+    REFERENCES `lockey_db`.`Route` (`id_rte`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_routedetail_locker`
     FOREIGN KEY (`id_lkr`)
-    REFERENCES `lockey_db.`.`Locker` (`id_lkr`)
+    REFERENCES `lockey_db`.`Locker` (`id_lkr`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_routedetail_route_idx` ON `lockey_db.`.`RouteDetail` (`id_rte` ASC) VISIBLE;
+CREATE INDEX `fk_routedetail_route_idx` ON `lockey_db`.`RouteDetail` (`id_rte` ASC) VISIBLE;
 
-CREATE INDEX `fk_routedetail_locker_idx` ON `lockey_db.`.`RouteDetail` (`id_lkr` ASC) VISIBLE;
+CREATE INDEX `fk_routedetail_locker_idx` ON `lockey_db`.`RouteDetail` (`id_lkr` ASC) VISIBLE;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- Database user
+CREATE USER 'lockey_usr'@'%' IDENTIFIED BY 'lockey_pwd_issi_pz.';
+GRANT insert,select,delete,update ON `lockey_db`.* TO 'lockey_usr'@'%';
