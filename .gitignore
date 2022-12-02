@@ -36,4 +36,4 @@ npm-debug.log
 *.map
 
 # Ignore css generated
-public/stylesheets/*.css
+*.css
