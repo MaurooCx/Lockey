@@ -6,16 +6,20 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'expres' });
 });
 
-router.get('/identificacion', function(req, res, next) {
-	res.render('signin');
-});
+router.route('/identificacion')
+	.get((req, res, next) => {
+		res.render('signin');
+	})
+	.post((req, res, next) => {
+		res.status(200).json('OK');
+	});
 
-router.get('/registro', function(req, res, next) {
-	res.render('signup');
-});
-
-router.post('/registro', function(req, res, next) {
-	res.render('signup');
-});
+router.route('/registro')
+	.get((req, res, next) => {
+		res.render('signup');
+	})
+	.post((req, res, next) => {
+		res.status(200).json('OK');
+	});
 
 module.exports = router;
