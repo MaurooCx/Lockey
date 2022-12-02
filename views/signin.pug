@@ -4,10 +4,10 @@ extends layout_sign
 block sign_block
 	main.d-flex.align-items-center.p-5.justify-content-center.h-auto
 		div
-		.row.pb-5
-			img(src="/images/sendiit.png")
-			section#Registro.mb-3 
-				form(class="row g-3 needs-validation" novalidate)
+			.row.pb-5.justify-content-center
+				img(src="/images/sendiit.png")
+			.row.mb-5
+				form.form-floating.row.g-3
 					div.form-floating.mb-3
 						input.form-control(type="textd" id="floatingInput" placeholder="name@example.com")
 						label(for="floatingInput") Correo electronico
@@ -16,6 +16,6 @@ block sign_block
 						input.form-control(type="password" id="floatingPassword" placeholder="Password")
 						label(for="floatingPassword") Contraseña
 						div.invalid-feedback Contraseña Incorrecta
-					button(class="btn btn-primary" Type="submit") confirmar
+					button(class="btn btn-primary" Type="submit") INICIAR SESIÓN
 
 											
