@@ -1,20 +1,22 @@
-var mysql = require('mysql');
+const mysql = require('mysql2');
 
-console.log(`Connecting to ${process.env.MYSQL_DATABASE}@${process.env.MYSQL_HOST}:${process.env.MYSQL_PORT}...`);
+// console.log(`mysql -h ${process.env.MYSQL_HOST} -P ${process.env.MYSQL_PORT} -u ${process.env.MYSQL_USER} -p ${process.env.MYSQL_DATABASE}\n${process.env.MYSQL_PASSWORD}`);
+
 var con = mysql.createConnection({
 	host:		process.env.MYSQL_HOST,
 	port:		process.env.MYSQL_PORT,
-	database:	process.env.MYSQL_DATABASE,
 	user: 		process.env.MYSQL_USER,
 	password:	process.env.MYSQL_PASSWORD,
+	database:	process.env.MYSQL_DATABASE,
 });
 
 // loop if fails to connect
 function connect() {
 	con.connect((err) => {
 		if (err) {
+			console.error(err);
 			console.log('Connection to MySQL failed. Retrying in 2 seconds...');
-			setTimeout(connect, 2*1000);	// try again in 2 seconds
+			// setTimeout(connect, 2*1000);	// try again in 2 seconds
 		}
 		else console.log("Connected!");
 	});
