@@ -73,5 +73,11 @@ const validarPassword2 = () => {
 
 formulario.addEventListener('submit', (e) => {
 	e.preventDefault();
+	if((campos.nombre && campos.password && campos.correo && campos.telefono ) == true ){
+
+	//coloca el codigo aqui 
+
+	}
+	return true;
 
 });
