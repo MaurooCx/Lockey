@@ -1,33 +1,42 @@
 version: '3'
 
 services:
-  mysql-development:
-    image: 'mysql:${MYSQL_VERSION}'
-    environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-    ports:
-      - '${MYSQL_PORT}:3306'
+  mysql:
+    image: mysql:8.0.31
+    restart: unless-stopped
     volumes:
-      # - ./.mysql:/var/lib/mysql
-      - ./init.sql:/tmp/init.sql
-    command: --init-file /tmp/init.sql
-  node-development:
-    image: 'node:${NODE_VERSION}'
+      - ./db/init.sql:/docker-entrypoint-initdb.d/0_init.sql
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    env_file:
+      - mysql.env
+    networks:
+      - internalnet
+
+  node:
+    build: .
+    image: lockey:1
+    ports:
+      - 3000:3000
+    volumes:
+      - ./src/:/lockey/src/
+    #   - ./src:/lockey
+    #   - ./package.json:/lockey/package.json
+    # working_dir: /lockey
+    # command: sh -c 'npm install && npm start'
+    expose:
+      - 3000
+    env_file:
+      - node.env
     depends_on:
-      - mysql-development
-    ports:
-      - '${SERVER_PORT}:${NODE_PORT}'
-    volumes:
-      - .:/lockey
-    working_dir: /lockey
-    command: sh -c 'npm install && npm start'
-    environment:
-      - 'SERVER_PORT=${SERVER_PORT}'
-      - 'MYSQL_HOST=${MYSQL_HOST}'
-      - 'MYSQL_PORT=${MYSQL_PORT}'
-      - 'MYSQL_DATABASE=${MYSQL_DATABASE}'
-      - 'MYSQL_USER=${MYSQL_USER}'
-      - 'MYSQL_PASSWORD=${MYSQL_PASSWORD}'
-      - 'NODE_ENV=${NODE_ENV}'
-      - 'PORT=${NODE_PORT}'
-      - 'DEBUG=${DEBUG}'
+      - mysql
+    networks:
+      - internalnet
+
+networks:
+  internalnet:
+    driver: bridge
+volumes:
+  myapp_data:

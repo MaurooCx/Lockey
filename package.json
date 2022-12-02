@@ -3,10 +3,11 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"start": "nodemon ./bin/www",
-		"dev": "nodemon ./bin/www",
-		"prestart": "sass --watch --poll ./sass:./public/stylesheets &"
+		"start": "nodemon src/bin/www",
+		"prestart": "sass --watch --poll src/sass:src/public/stylesheets &"
 	},
+	"author": "M1ndblast",
+	"license": "ISC",
 	"dependencies": {
 		"body-parser": "^1.20.1",
 		"bootstrap": "^5.2.3",
@@ -16,10 +17,12 @@
 		"express": "^4.18.2",
 		"morgan": "^1.10.0",
 		"mysql": "^2.18.1",
+		"mysql2": "^2.3.3",
 		"pug": "^3.0.2",
 		"serve-favicon": "^2.5.0"
 	},
 	"devDependencies": {
+		"dotenv": "^16.0.3",
 		"nodemon": "^2.0.20",
 		"sass": "^1.56.1"
 	},
@@ -30,12 +33,9 @@
 			"node_modules",
 			"public"
 		],
-		"ext": "js,scss,env",
+		"ext": "js,json",
 		"watch": [
 			"."
-		],
-		"execMap": {
-			"scss": "sass ./sass:./public/stylesheets"
-		}
+		]
 	}
 }
