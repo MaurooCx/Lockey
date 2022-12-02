@@ -9,3 +9,9 @@ $secondary: #212e46;
 $success: #dddddd; 
 
 @import "../node_modules/bootstrap/scss/bootstrap";
+
+
+.invalid-feedback {
+
+	display: block;
+}

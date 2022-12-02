@@ -6,49 +6,42 @@ block sign_block
 		.row.pb-5
 			img(src="/images/sendiit.png")
 			section#Registro.mb-3 
-				form.row.g-3
+				form(class="row g-3 needs-validation" novalidate)
 					div.form-floating.mb-3
-						input.form-control#validationServer01(type="text"  placeholder="name@example.com")
-						label(for="floatingInput") Nombre completo
+						input.form-control#floatingInput(type="text"  placeholder="name@example.com")
+						label(for="floatingInput") Nombre completo*
 						div.valid-feedback Todo bien!
-						div.invalid-feedback Error
-					div.form-floating.mb-3
-						label(for="validationCustom01" class="form-label") First name
-						input(type="text" class="form-control" id="validationCustom01")
-						div.valid-feedback Todo bien!
-						div.invalid-feedback Error
+						div.invalid-feedback Ingresa 
 					div.form-floating.mb-3
 						input.form-control(type="tel" id="floatingInput" placeholder="name@example.com")
-						label(for="floatingInput") Numero de celular
+						label(for="floatingInput") Numero de celular*
 						div.valid-feedback Todo bien!
-						div.invalid-feedback Error
+						div.invalid-feedback Ingresa un numero de telefono 
 					div.form-floating.mb-3
 						input.form-control(type="textd" id="floatingInput" placeholder="name@example.com")
-						label(for="floatingInput") Correo electronico
+						label(for="floatingInput") Correo electronico*
 						div.valid-feedback Todo bien!
 						div.invalid-feedback Error
 					div.form-floating.mb-3
 						input.form-control(type="password" id="floatingPassword" placeholder="Password")
-						label(for="floatingPassword") Contraseña
+						label(for="floatingPassword") Contraseña*
 						div.valid-feedback Todo bien!
 						div.invalid-feedback Error
 					div.form-floating
 						input.form-control(type="password" id="floatingPassword" placeholder="Password")
-						label(for="floatingPassword") Confirmar contraseña
+						label(for="floatingPassword") Confirmar contraseña*
 						div.valid-feedback Todo bien!
 						div.invalid-feedback Error
-					button(class="btn btn-primary" Type="submit") confirmar
-					p dswe
-
-					
-						
+					p *Campos obligatorios
+					button#Guardar(class="btn btn-primary" Type="submit") confirmar
+											
 
 
-					
+										
 
 
-						
+											
 
-					
+										
 
-		
+							
