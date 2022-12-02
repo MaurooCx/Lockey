@@ -11,7 +11,22 @@ $success: #dddddd;
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 
-.invalid-feedback {
+body {
+	font-family: 'Inter' !important;
+	padding: 0px; 
+	margin: 0px; 
+}
 
-	display: block;
+.btn {
+    padding-top: 20px;
+    padding-bottom: 20px; 
+    font-weight: bolder;  
+    border-radius: 500px;  
+    font-size: 50px;  
+    letter-spacing: 2px
+}
+
+img{
+    width: 70% !important;
+    height: auto;
 }
