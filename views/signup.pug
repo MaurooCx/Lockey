@@ -1,37 +1,54 @@
 extends layout_sign
 
 block sign_block
-	main
-		p signup
-		section#Registro
-			form 
-				div.FormularioGrupo#GrupoNombre
-					label Nombre completo:
-					div.FormularioInput
-						input(type="text")
-					p.FormularioError Error 
-				div.FormularioGrupo#GrupoCelular
-					label Numero de Celular:
-					div.FormularioInput
-						input(type="tel")
-					p.FormularioError Error
-				div.FormularioGrupo#GrupoCorreo
-					label Correo electronico:
-					div.FormularioInput
-						input(type="email")
-					p.FormularioError Error
-				div.FormularioGrupo#GrupoContrasena
-					label Contraseña:
-					div.FormularioInput
-						input(type="password")
-					p.FormularioError Error
-				div.FormularioGrupo#GrupoConfirmacionContrasena
-					label Confirmar contraseña:
-					div.FormularioInput
-						input(type="password")
-					p.FormularioError  Error
-				div.BtnEnviar
-					button.BtnFormulario(type="submit") Enviar
-					p.Exito#MensajeDeExito Formulario enviado exitosamente!
+	main.d-flex.align-items-center.p-5.justify-content-center.h-auto
+		div
+		.row.pb-5
+			img(src="/images/sendiit.png")
+			section#Registro.mb-3 
+				form.row.g-3
+					div.form-floating.mb-3
+						input.form-control#validationServer01(type="text"  placeholder="name@example.com")
+						label(for="floatingInput") Nombre completo
+						div.valid-feedback Todo bien!
+						div.invalid-feedback Error
+					div.form-floating.mb-3
+						label(for="validationCustom01" class="form-label") First name
+						input(type="text" class="form-control" id="validationCustom01")
+						div.valid-feedback Todo bien!
+						div.invalid-feedback Error
+					div.form-floating.mb-3
+						input.form-control(type="tel" id="floatingInput" placeholder="name@example.com")
+						label(for="floatingInput") Numero de celular
+						div.valid-feedback Todo bien!
+						div.invalid-feedback Error
+					div.form-floating.mb-3
+						input.form-control(type="textd" id="floatingInput" placeholder="name@example.com")
+						label(for="floatingInput") Correo electronico
+						div.valid-feedback Todo bien!
+						div.invalid-feedback Error
+					div.form-floating.mb-3
+						input.form-control(type="password" id="floatingPassword" placeholder="Password")
+						label(for="floatingPassword") Contraseña
+						div.valid-feedback Todo bien!
+						div.invalid-feedback Error
+					div.form-floating
+						input.form-control(type="password" id="floatingPassword" placeholder="Password")
+						label(for="floatingPassword") Confirmar contraseña
+						div.valid-feedback Todo bien!
+						div.invalid-feedback Error
+					button(class="btn btn-primary" Type="submit") confirmar
+					p dswe
+
+					
+						
+
+
+					
+
+
+						
+
+					
 
 		
