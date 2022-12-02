@@ -7,29 +7,28 @@ block sign_block
 				img(src="/images/sendiit.png")
 			.row.pb-5
 				section#Registro.mb-5.mt-5.p-5
-					form.row.g-3
-						div.form-floating.mb-3
-							input.form-control#validationServer01(type="text"  placeholder="name@example.com")
+					form.row.g-3#formulario
+						div.form-floating.mb-3#grupo__nombre
+							input.form-control(type="text" id="nombre" name="nombre"  placeholder="name@example.com")
 							label(for="floatingInput") Nombre completo
 							div.valid-feedback Todo bien!
 							div.invalid-feedback Error
-						div.form-floating.mb-3
-							input.form-control(type="tel" id="floatingInput" placeholder="name@example.com")
+						div.form-floating.mb-3#grupo__telefono
+							input.form-control(type="tel" id="telefono" placeholder="name@example.com")
 							label(for="floatingInput") Numero de celular
 							div.valid-feedback Todo bien!
 							div.invalid-feedback Error
-						div.form-floating.mb-3
-							input.form-control(type="textd" id="floatingInput" placeholder="name@example.com")
+						div.form-floating.mb-3#grupo__correo
+							input.form-control(type="textd" id="correo" placeholder="name@example.com")
 							label(for="floatingInput") Correo electronico
 							div.valid-feedback Todo bien!
 							div.invalid-feedback Error
-						div.form-floating.mb-3
-							input.form-control(type="password" id="floatingPassword" placeholder="Password")
+						div.form-floating.mb-3#grupo__password
+							input.form-control(type="password" id="password" placeholder="Password")
 							label(for="floatingPassword") Contraseña
-							div.valid-feedback Todo bien!
 							div.invalid-feedback Error
-						div.form-floating.mb-5
-							input.form-control(type="password" id="floatingPassword" placeholder="Password")
+						div.form-floating.mb-5#grupo__password2
+							input.form-control(type="password" id="password2" placeholder="Password")
 							label(for="floatingPassword") Confirmar contraseña
 							div.valid-feedback Todo bien!
 							div.invalid-feedback Error
