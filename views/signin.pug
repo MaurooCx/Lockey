@@ -1,5 +1,21 @@
 extends layout_sign
 
+
 block sign_block
-	main
-		p signin
+	main.d-flex.align-items-center.p-5.justify-content-center.h-auto
+		div
+		.row.pb-5
+			img(src="/images/sendiit.png")
+			section#Registro.mb-3 
+				form(class="row g-3 needs-validation" novalidate)
+					div.form-floating.mb-3
+						input.form-control(type="textd" id="floatingInput" placeholder="name@example.com")
+						label(for="floatingInput") Correo electronico
+						div.invalid-feedback No existe una cuenta con este correo 
+					div.form-floating.mb-3
+						input.form-control(type="password" id="floatingPassword" placeholder="Password")
+						label(for="floatingPassword") Contraseña
+						div.invalid-feedback Contraseña Incorrecta
+					button(class="btn btn-primary" Type="submit") confirmar
+
+											
