@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `lockey_db`.`User` (
   `nm_usr` VARCHAR(45) NOT NULL,
   `em_usr` VARCHAR(45) NOT NULL,
   `tel_usr` VARCHAR(45) NULL,
-  `pwd_usr` VARCHAR(45) NOT NULL,
+  `pwd_usr` VARCHAR(64) NOT NULL,
   `type_usr` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id_usr`))
 ENGINE = InnoDB;

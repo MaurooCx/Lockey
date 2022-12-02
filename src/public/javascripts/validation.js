@@ -16,6 +16,32 @@ const campos = {
 	telefono: false
 }
 
+function loginValidation(e) {
+	e.preventDefault();
+	let inputs = e.target.elements;
+
+	let urlencoded = new URLSearchParams();
+	urlencoded.append("email", inputs.email.value);
+	urlencoded.append("pwd", inputs.pwd.value);
+
+	fetch(window.location.pathname, {
+		method: 'POST',
+		body: urlencoded
+	}).then(res => res.json())
+	.then(data => {
+		if (data.response == 'OK') {
+			window.location.href = data.redirect;
+		} else {
+			alert(data.message);
+		}
+	})
+	.catch(err => {
+		console.log(err);
+	});
+		
+}
+/*
+
 const validarFormulario = (e) => {
 	
 	switch (e.target.id) {
@@ -67,17 +93,4 @@ const validarPassword2 = () => {
 		document.querySelector(`#grupo__password2 .invalid-feedback`).classList.remove('error-activo');
 		campos['password'] = true;
 	}
-}
-
-
-
-formulario.addEventListener('submit', (e) => {
-	e.preventDefault();
-	if((campos.nombre && campos.password && campos.correo && campos.telefono ) == true ){
-
-	//coloca el codigo aqui 
-
-	}
-	return true;
-
-});
+}*/

@@ -4,11 +4,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-
-//var con = require('./modules/MySQLConnection');
 
 var app = express();
 
@@ -23,6 +22,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+	secret: 'foo',
+	resave: true,
+	saveUninitialized: true,
+	cookie: { maxAge: 60 }	// 1 minute = 60 units
+}));
 
 app.use('/', index);
 app.use('/panel', users);

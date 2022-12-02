@@ -7,13 +7,13 @@ block sign_block
 			.row.pb-5.justify-content-center
 				img(src="/images/sendiit.png")
 			.row.mb-5
-				form.form-floating.row.g-3
+				form#formulario.form-floating.row.g-3(action="/identificacion" method="POST" autocomplete="on" onsubmit="return loginValidation(event)")
 					div.form-floating.mb-3
-						input.form-control(type="textd" id="floatingInput" placeholder="name@example.com")
+						input.form-control(type="textd" id="floatingInput" name="email" placeholder="name@example.com")
 						label(for="floatingInput") Correo electronico
 						div.invalid-feedback No existe una cuenta con este correo 
 					div.form-floating.mb-3
-						input.form-control(type="password" id="floatingPassword" placeholder="Password")
+						input.form-control(type="password" id="floatingPassword" name="pwd" placeholder="Password")
 						label(for="floatingPassword") Contraseña
 						div.invalid-feedback Contraseña Incorrecta
 					button(class="btn btn-primary" Type="submit") INICIAR SESIÓN

@@ -7,7 +7,7 @@ block sign_block
 				img(src="/images/sendiit.png")
 			.row.pb-5
 				section#Registro.mb-5.mt-5.p-5
-					form.row.g-3#formulario
+					form#formulario.row.g-3(action="/registro" method="POST")
 						div.form-floating.mb-3#grupo__nombre
 							input.form-control(type="text" id="nombre" name="nombre"  placeholder="name@example.com")
 							label(for="floatingInput") Nombre completo
