@@ -5,7 +5,7 @@ const expresiones = {
 	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
 	password: /^ (?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/,// 4  12 digitos.
 	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-	telefono: /^\d{7,14}$/ // 7 a 14 numeros.
+	telefono: /^\d{10}$/ // 7 a 14 numeros.
 }
 
 
@@ -41,7 +41,7 @@ const validarFormulario = (e) => {
 	}
 }
 const validarCampo = (expresion, input, campo) => {
-	if(expresion.test(input.value)){
+	if(expresion.test(input.value)||input.value==''){
 		console.log('F');
 		document.querySelector(`#grupo__${campo} .invalid-feedback`).classList.remove('error-activo');
 		campos[campo] = true;
