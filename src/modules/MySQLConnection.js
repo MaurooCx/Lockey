@@ -14,7 +14,7 @@ function connect() {
 		if (err) {
 			console.error(err);
 			console.log('Connection to MySQL failed. Retrying in 2 seconds...');
-			// setTimeout(connect, 2*1000);	// try again in 2 seconds
+			setTimeout(connect, 2*1000);	// try again in 2 seconds
 		} 
 		else console.log(`Connected to MySQL on ${process.env.MYSQL_HOST}:${process.env.MYSQL_PORT}!`);
 	});

@@ -17,15 +17,11 @@ services:
 
   node:
     build: .
-    image: lockey:1
+    image: lockey:1.0.1
     ports:
       - 3000:3000
     volumes:
       - ./src/:/lockey/src/
-    #   - ./src:/lockey
-    #   - ./package.json:/lockey/package.json
-    # working_dir: /lockey
-    # command: sh -c 'npm install && npm start'
     expose:
       - 3000
     env_file:
@@ -39,4 +35,4 @@ networks:
   internalnet:
     driver: bridge
 volumes:
-  myapp_data:
+  lockey_code:

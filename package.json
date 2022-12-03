@@ -1,6 +1,6 @@
 {
 	"name": "lockey",
-	"version": "0.1.0",
+	"version": "1.0.1",
 	"private": true,
 	"scripts": {
 		"start": "nodemon src/bin/www",
@@ -24,7 +24,6 @@
 		"serve-favicon": "^2.5.0"
 	},
 	"devDependencies": {
-		"dotenv": "^16.0.3",
 		"nodemon": "^2.0.20",
 		"sass": "^1.56.1"
 	},
