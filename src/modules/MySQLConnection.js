@@ -24,11 +24,10 @@ connect();
 
 con.on('error', function(err) {
 	console.log('db error', err);
-	if(err.code === 'PROTOCOL_CONNECTION_LOST') {
+	if(err.code === 'PROTOCOL_CONNECTION_LOST' || err.code === 'ECONNRESET' || err.code === 'ECONNREFUSED') 
 		connect();
-	} else {
+	else
 		throw err;
-	}
 });
 
 // Here goes MySQL queries
