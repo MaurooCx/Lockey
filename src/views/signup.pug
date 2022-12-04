@@ -1,9 +1,9 @@
 form.needs-validation(action='/identificacion' method='POST' novalidate)
-	#signupModal.modal.fade(tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true')
+	#signupModal.modal.fade(tabindex='-1' aria-hidden='true')
 		.modal-dialog.modal-dialog-centered.modal-dialog-scrollable
 				.modal-content
 					.modal-header
-						h1#exampleModalLabel.modal-title.fs-5 Crea una cuenta
+						h1.modal-title.fs-5 Crea una cuenta
 						button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
 					.modal-body
 						.form-floating.mb-3
@@ -33,6 +33,8 @@ form.needs-validation(action='/identificacion' method='POST' novalidate)
 								a(href="#") 
 									| Términos y Condiciones
 							.invalid-feedback Necesitas aceptar los términos y condiciones
+						button.btn(type='button' data-bs-target='#signinModal' data-bs-toggle='modal') ¿Ya tienes una cuenta? Inicia sesión
 					.modal-footer
+						button.btn.btn-outline-info.btn-sm(data-bs-target='#mailverificationModal' data-bs-toggle='modal') skip to email verification
 						button.btn.btn-danger(type='reset' data-bs-dismiss='modal') Cancelar
 						button.btn.btn-primary(type='submit') Crear Cuenta
