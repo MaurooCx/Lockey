@@ -32,7 +32,7 @@
 		"delay": 1500,
 		"ignore": [
 			"node_modules",
-			"public"
+			"src/public"
 		],
 		"ext": "js,json",
 		"watch": [

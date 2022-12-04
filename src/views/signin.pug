@@ -7,11 +7,11 @@ form.needs-validation(action='/identificacion' method='POST' novalidate)
 						button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
 					.modal-body
 						.form-floating.mb-3
-							input#emInputSignin.form-control(type='email' placeholder='name@example.com' required)
+							input#emInputSignin.form-control(type='email' name='email' placeholder='name@example.com' required)
 							label(for='emInputSignin') Correo electrónico
 							.invalid-feedback Ingresa tu correo
 						.form-floating.mb-3
-							input#pwdInputSignin.form-control(type='password' placeholder='********' required)
+							input#pwdInputSignin.form-control(type='password' name='password' placeholder='********' min=8 max=16 required)
 							label(for='pwdInputSignin') Contraseña
 							.invalid-feedback Ingresa tu contraseña
 						button.btn(type='button' data-bs-target='#passwordresetModal' data-bs-toggle='modal') ¿Olvidaste tu contraseña?

@@ -6,24 +6,17 @@ var db = require('../modules/MySQLConnection');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'expres' });
+  res.render('index', { title:'sendiit', path:req.path, user:req.session.user });
 });
 
-router.get('/test', function(req, res, next) {
-	  res.render('foo');
-});
 
 router.route('/identificacion')
-	.get((req, res, next) => { 
-		let user = req.session.user
-		res.render('signin', { title: user?.name });
-	})
 	.post((req, res, next) => {
 		debug(req.body);
-		let {email, pwd} = req.body;
-		pwd = crypto.createHash('sha256').update(pwd).digest('hex');
+		let {email, password} = req.body;
+		password = crypto.createHash('sha256').update(password).digest('hex');
 
-		db.checkCredentials(email, pwd).then((results) => {
+		db.checkCredentials(email, password).then((results) => {
 			debug('results', results);
 			if (results.length > 0) {
 				req.session.user = {
@@ -49,17 +42,13 @@ router.route('/identificacion')
 	});
 
 router.route('/registro')
-	.get((req, res, next) => {
-		let user = req.session.user
-		res.render('signup', {title: user?.name});
-	})
 	.post((req, res, next) => {
 		debug(req.body);
-		let {name, email, tel, pwd} = req.body;
-		pwd = crypto.createHash('sha256').update(pwd).digest('hex');
+		let {name, email, tel, password} = req.body;
+		password = crypto.createHash('sha256').update(password).digest('hex');
 
 		// create new user
-		db.createUser(name, email, tel, pwd, db.ROLES.CLIENT).then((results) => {
+		db.createUser(name, email, tel, password, db.ROLES.CLIENT).then((results) => {
 			debug('results', results);
 			if (results.affectedRows > 0) {
 				// get user by id
