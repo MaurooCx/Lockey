@@ -9,8 +9,9 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'expres' });
 });
 
-//Below showing to alternatives to redirect to another page
-// Fer, elige el que mejor quieras
+router.get('/test', function(req, res, next) {
+	  res.render('foo');
+});
 
 router.route('/identificacion')
 	.get((req, res, next) => { 

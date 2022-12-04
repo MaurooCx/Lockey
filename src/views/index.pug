@@ -1,14 +1,24 @@
 extends layout
 
 block content
-  main.d-flex.align-items-center.p-5.justify-content-center.h-auto
-    div
-      .row.pb-5.justify-content-center
-        img(src="/images/sendiit.png")
-      .row.p-5
-        .row.pb-5
-          button.shadow.btn-lg.btn.btn-primary(type="button", onclick="location.href='/identificacion'") RASTREAR ENVÍO  
-        .row.pb-5
-          button.shadow.btn-lg.btn.btn-secondary(type="button", onclick="location.href='/identificacion'" ) INGRESAR
-        .row.pb-5
-          button.shadow.btn-lg.btn.btn-success(type="button", onclick="location.href='/registro'") CREAR CUENTA
+	.position-relative.overflow-hidden.p-3.p-md-5.text-center.bg-cover1.text-light
+		.col-md-5.p-lg-5.mx-auto.my-5
+			h1.display-4.fw-normal Rastree su envío
+			p.lead.fw-normal
+				| Ingresa el número de guía de tu envío y obtén información actualizada de su estado.
+			a.btn.btn-primary(href='/') Rastrear Envío
+	.d-md-flex.flex-md-equal.w-100.p-0.m-0
+		.me-md-3.py-5.px-3.py-md-5.px-md-5.text-center.overflow-hidden.text-bg-dark
+			.my-4.py-5
+				h2.display-5 Soy nuevo aquí
+				p.lead Crea una cuenta para comenzar monitorizar tus envíos.
+			button.btn.btn-tertiary(type='button' data-bs-toggle='modal' data-bs-target='#signupModal') Crear Cuenta
+		.me-md-3.py-5.px-3.py-md-5.px-md-5.text-center.overflow-hidden.bg-light
+			.my-4.py-5
+				h2.display-5 Ya tengo cuenta
+				p.lead Inicia sesión para acceder a tus envíos.
+			button.btn.btn-secondary(type='button' data-bs-toggle='modal' data-bs-target='#signinModal') Ingresar
+	include signup
+	include signin
+block scripts
+	script(src='/javascripts/validation.js')

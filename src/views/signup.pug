@@ -1,47 +1,38 @@
-extends layout_sign
-
-block sign_block
-	main.d-flex.align-items-center.p-5.justify-content-center
-		div
-			.row.pb-5.justify-content-center
-				img(src="/images/sendiit.png")
-			.row.pb-5
-				section#Registro.mb-5.mt-5.p-5
-					form#formulario.row.g-3(action="/registro" method="POST")
-						div.form-floating.mb-3#grupo__nombre
-							input.form-control(type="text" id="nombre" name="nombre"  placeholder="name@example.com")
-							label(for="floatingInput") Nombre completo
-							div.valid-feedback Todo bien!
-							div.invalid-feedback Error
-						div.form-floating.mb-3#grupo__telefono
-							input.form-control(type="tel" id="telefono" placeholder="name@example.com")
-							label(for="floatingInput") Numero de celular
-							div.valid-feedback Todo bien!
-							div.invalid-feedback Error
-						div.form-floating.mb-3#grupo__correo
-							input.form-control(type="textd" id="correo" placeholder="name@example.com")
-							label(for="floatingInput") Correo electronico
-							div.valid-feedback Todo bien!
-							div.invalid-feedback Error
-						div.form-floating.mb-3#grupo__password
-							input.form-control(type="password" id="password" placeholder="Password")
-							label(for="floatingPassword") Contraseña
-							div.invalid-feedback Error
-						div.form-floating.mb-5#grupo__password2
-							input.form-control(type="password" id="password2" placeholder="Password")
-							label(for="floatingPassword") Confirmar contraseña
-							div.valid-feedback Todo bien!
-							div.invalid-feedback Error
-						button(class="btn btn-primary" Type="submit") CREAR CUENTA
-
-
-										
-
-
-											
-
-											
-
-										
-
-							
+form.needs-validation(action='/identificacion' method='POST' novalidate)
+	#signupModal.modal.fade(tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true')
+		.modal-dialog.modal-dialog-centered.modal-dialog-scrollable
+				.modal-content
+					.modal-header
+						h1#exampleModalLabel.modal-title.fs-5 Crea una cuenta
+						button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+					.modal-body
+						.form-floating.mb-3
+							input#nmInput.form-control(type='text' placeholder='name@example.com' required)
+							label(for='nmInput') Nombre
+							.invalid-feedback Ingresa tu nombre completo
+						.form-floating.mb-3
+							input#emInput.form-control(type='email' placeholder='name@example.com' required)
+							label(for='emInput') Correo electrónico
+							.invalid-feedback Ingresa tu correo
+						.form-floating.mb-3
+							input#telInput.form-control(type='tel' placeholder='name@example.com' required)
+							label(for='telInput') Teléfono
+							.invalid-feedback Ingresa tu telefono
+						.form-floating.mb-3
+							input#pwdInput.form-control(type='password' placeholder='********' required)
+							label(for='pwdInput') Contraseña
+							.invalid-feedback Ingresa tu contraseña
+						.form-floating.mb-3
+							input#pwdcInput.form-control(type='password' placeholder='********' required)
+							label(for='pwdcInput') Confirmar Contraseña
+							.invalid-feedback Ingresa la confirmación de tu contraseña
+						.mb-3.form-check
+							input#termInput.form-check-input(type='checkbox' required)
+							label.form-check-label(for='termInput') 
+								| Acepto los 
+								a(href="#") 
+									| Términos y Condiciones
+							.invalid-feedback Necesitas aceptar los términos y condiciones
+					.modal-footer
+						button.btn.btn-danger(type='reset' data-bs-dismiss='modal') Cancelar
+						button.btn.btn-primary(type='submit') Crear Cuenta
