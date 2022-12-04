@@ -7,28 +7,28 @@ form.needs-validation(action='/identificacion' method='POST' novalidate)
 						button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
 					.modal-body
 						.form-floating.mb-3
-							input#nmInput.form-control(type='text' placeholder='name@example.com' required)
-							label(for='nmInput') Nombre
+							input#nmInputSignup.form-control(type='text' placeholder='name@example.com' required)
+							label(for='nmInputSignup') Nombre
 							.invalid-feedback Ingresa tu nombre completo
 						.form-floating.mb-3
-							input#emInput.form-control(type='email' placeholder='name@example.com' required)
-							label(for='emInput') Correo electrónico
+							input#emInputSignup.form-control(type='email' placeholder='name@example.com' required)
+							label(for='emInputSignup') Correo electrónico
 							.invalid-feedback Ingresa tu correo
 						.form-floating.mb-3
-							input#telInput.form-control(type='tel' placeholder='name@example.com' required)
-							label(for='telInput') Teléfono
+							input#telInputSignup.form-control(type='tel' placeholder='name@example.com' required)
+							label(for='telInputSignup') Teléfono
 							.invalid-feedback Ingresa tu telefono
 						.form-floating.mb-3
-							input#pwdInput.form-control(type='password' placeholder='********' required)
-							label(for='pwdInput') Contraseña
+							input#pwdInputSignup.form-control(type='password' placeholder='********' required)
+							label(for='pwdInputSignup') Contraseña
 							.invalid-feedback Ingresa tu contraseña
 						.form-floating.mb-3
-							input#pwdcInput.form-control(type='password' placeholder='********' required)
-							label(for='pwdcInput') Confirmar Contraseña
+							input#pwdvInputSignup.form-control(type='password' placeholder='********' required)
+							label(for='pwdvInputSignup') Confirmar Contraseña
 							.invalid-feedback Ingresa la confirmación de tu contraseña
 						.mb-3.form-check
-							input#termInput.form-check-input(type='checkbox' required)
-							label.form-check-label(for='termInput') 
+							input#termInputSignup.form-check-input(type='checkbox' required)
+							label.form-check-label(for='termInputSignup') 
 								| Acepto los 
 								a(href="#") 
 									| Términos y Condiciones
