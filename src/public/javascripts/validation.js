@@ -1,4 +1,9 @@
 
+function validateForm(form) {
+	return Array.from(form.elements).some((element) => 
+		!element.checkValidity()
+	).length>0
+}
 
 function validatePassword(form) {
 	if (form.elements['password-confirm']) {
@@ -36,8 +41,7 @@ function validatePassword(form) {
 		});
 
 		form.addEventListener('submit', event => {
-
-			if (!validatePassword(form) || !form.checkValidity()) {
+			if (!validateForm(form) || !validatePassword(form)) {
 				event.preventDefault()
 				event.stopPropagation()
 				
