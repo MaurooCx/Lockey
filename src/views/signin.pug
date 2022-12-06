@@ -11,7 +11,7 @@ form.needs-validation(action='/identificacion' method='POST' novalidate)
 							label(for='emInputSignin') Correo electrónico
 							.invalid-feedback Ingresa tu correo
 						.form-floating.mb-3
-							input#pwdInputSignin.form-control(type='password' name='password' placeholder='********' min=8 max=16 required)
+							input#pwdInputSignin.form-control(type='password' name='password' placeholder='********' required)
 							label(for='pwdInputSignin') Contraseña
 							.invalid-feedback Ingresa tu contraseña
 						button.btn(type='button' data-bs-target='#passwordresetModal' data-bs-toggle='modal') ¿Olvidaste tu contraseña?

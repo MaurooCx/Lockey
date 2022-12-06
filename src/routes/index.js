@@ -1,7 +1,7 @@
 var debug = require('debug')('lockey:router:index');
 var express = require('express');
 var router = express.Router();
-var crypto = require('crypto');
+var crypto = require('node:crypto');
 var db = require('../modules/MySQLConnection');
 
 /* GET home page. */
@@ -18,26 +18,27 @@ router.route('/identificacion')
 
 		db.checkCredentials(email, password).then((results) => {
 			debug('results', results);
-			if (results.length > 0) {
+			if (results.length) {
 				req.session.user = {
 					name: results[0].nm_usr,
 					email: results[0].em_usr,
-					type: results[0].tp_usr
+					type: results[0].type_usr
 				};
-
+				debug('/identificacion session.user:', req.session.user);
+				
 				res.status(200).json({
 					response: 'OK',
 					message: 'Usuario autenticado',
-					redirect: '.'
+					redirect: '/panel'
 				});
 			} else {
 				// res.redirect(401, '/identificacion');
-				res.status(401).json({response:'OK', message:'Correo o contraseña incorrectos'});
+				res.status(401).json({response:'ERROR', message:'Correo o contraseña incorrectos'});
 			}
 		}).catch((err) => {
 			debug(err);
 			// res.redirect(402, '/identificacion');
-			res.status(402).json({response:'OK', message:err});
+			res.status(402).json({response:'ERROR', message:err});
 		});
 	});
 
@@ -58,12 +59,13 @@ router.route('/registro')
 						req.session.user = {
 							name: results[0].nm_usr,
 							email: results[0].em_usr,
-							type: results[0].tp_usr
+							type: results[0].type_usr
 						};
+						debug('/registro session.user:', req.session.user);
 						res.status(200).json({
 							response: 'OK',
 							message: 'Usuario creado correctamente',
-							redirect: '.'
+							redirect: '/panel'
 						});
 					} else {
 						res.status(401).json({response:'ERROR', message:'Usuario no encontrado tras registro'});
@@ -80,5 +82,7 @@ router.route('/registro')
 			res.status(402).json({response:'ERROR', message:err});
 		});
 	});
+
+
 
 module.exports = router;

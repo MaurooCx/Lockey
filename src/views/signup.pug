@@ -7,23 +7,23 @@ form.needs-validation(action='/registro' method='POST' novalidate)
 						button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
 					.modal-body
 						.form-floating.mb-3
-							input#nmInputSignup.form-control(type='text' name='name' placeholder='name@example.com' required)
+							input#nmInputSignup.form-control(type='text' name='name' required)
 							label(for='nmInputSignup') Nombre
 							.invalid-feedback Ingresa tu nombre completo
 						.form-floating.mb-3
-							input#emInputSignup.form-control(type='email' name='email' placeholder='name@example.com' required)
+							input#emInputSignup.form-control(type='email' name='email' required)
 							label(for='emInputSignup') Correo electrónico
 							.invalid-feedback Ingresa tu correo
 						.form-floating.mb-3
-							input#telInputSignup.form-control(type='tel' name='tel' placeholder='name@example.com' required)
+							input#telInputSignup.form-control(type='tel' name='tel' required)
 							label(for='telInputSignup') Teléfono
 							.invalid-feedback Ingresa tu telefono
 						.form-floating.mb-3
-							input#pwdInputSignup.form-control(type='password' name='password' placeholder='********' min=8 max=16 required)
+							input#pwdInputSignup.form-control(type='password' name='password' min=8 max=16 required)
 							label(for='pwdInputSignup') Contraseña
 							.invalid-feedback Ingresa tu contraseña
 						.form-floating.mb-3
-							input#pwdvInputSignup.form-control(type='password' name='password-confirm' placeholder='********' min=8 max=16 required)
+							input#pwdvInputSignup.form-control(type='password' name='password-confirm' required)
 							label(for='pwdvInputSignup') Confirmar Contraseña
 							.invalid-feedback Ingresa la confirmación de tu contraseña
 						.mb-3.form-check

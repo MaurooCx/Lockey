@@ -13,7 +13,7 @@ const TOAST_TYPES = {
 	DANGER: 'danger'
 }
 
-function createToast(message, type=TOAST_TYPES.DANGER, duration=5000) {
+function toast(message, type=TOAST_TYPES.DANGER, duration=5000) {
 	let toastElem = document.createElement('div');
 	
 	toastElem.classList.add('toast', `text-bg-${type}`, 'border-0');
@@ -29,7 +29,7 @@ function createToast(message, type=TOAST_TYPES.DANGER, duration=5000) {
 			</div>
 			<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
 		</div>
-	`;
+	`; 
 
 	toastElem.addEventListener('hidden.bs.toast', () => toastElem.remove())
 
