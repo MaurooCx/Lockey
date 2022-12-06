@@ -2,7 +2,7 @@ const patterns = {
 	name: /[a-zA-Zà-ÿÀ-Ÿ]{3,} ([a-zA-Zà-ÿÀ-Ÿ]{2,} *)+/,
 	tel: /[0-9]{10}/,
 	email: /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/,
-	password: /(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,16}/,
+	password: /(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^a-zA-Z0-9\s:])([^\s]){8,16}/,
 }
 
 function validateForm(form) {
