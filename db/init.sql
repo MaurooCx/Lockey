@@ -271,3 +271,6 @@ CREATE INDEX `fk_routedetail_locker_idx` ON `lockey_db`.`RouteDetail` (`id_lkr` 
 -- SET SQL_MODE=@OLD_SQL_MODE;
 -- SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 -- SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- Contra1234.
+INSERT INTO `lockey_db`.`User` VALUES (NULL, 'Gustavo Peduzzi',  'gustavopdzz0@gmail.com', '5610338516', 'e476acd96b5d450ccad79cc6bfa1f928784e47a713c4311c307a6db0f7ad8a41', 3);
