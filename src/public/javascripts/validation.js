@@ -7,24 +7,7 @@ const patterns = {
 
 function validateForm(form) {
 	return Array.from(form.elements)
-		.every((element) => {
-			
-			// if (element.type === 'tel') {
-			// 	console.log(element.value);
-			// }
-			
-			// let patternValidity = element.name in patterns 
-			// 	? patterns[element.name].test(element.value)
-			// 	: element.type in patterns 
-			// 		? patterns[element.type].test(element.value)
-			// 		: true;
-			
-			// if (element.type === 'tel') {
-			// 	console.log(patternValidity);
-			// }
-			return element.checkValidity()
-				// && patternValidity;	
-		})
+		.every((element) => element.checkValidity() )
 }
 
 function validatePassword(form) {
