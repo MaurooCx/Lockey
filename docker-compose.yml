@@ -7,7 +7,7 @@ services:
     volumes:
       - ./db/init.sql:/docker-entrypoint-initdb.d/0_init.sql
     ports:
-      - '${MYSQL_PORT}:3306'
+      - '${MYSQL_PORT_EXT}:${MYSQL_PORT}'
     expose:
       - '${MYSQL_PORT}'
     networks:
