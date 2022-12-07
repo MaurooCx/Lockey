@@ -21,10 +21,10 @@ CREATE TABLE IF NOT EXISTS `lockey_db`.`User` (
   `id_usr` INT NOT NULL AUTO_INCREMENT,
   `nm_usr` VARCHAR(45) NOT NULL,
   `em_usr` VARCHAR(45) NOT NULL,
-  `tel_usr` INT(10) NOT NULL,
+  `tel_usr` VARCHAR(10) NOT NULL,
   `pwd_usr` VARCHAR(64) NOT NULL,
   `type_usr` INT NOT NULL,
-  `tk_usr` INT(6) NOT NULL,
+  `tk_usr` INT(6) NULL,
   PRIMARY KEY (`id_usr`),
   UNIQUE INDEX `id_user_UNIQUE` (`id_usr` ASC) VISIBLE)
 ENGINE = InnoDB;
@@ -34,7 +34,7 @@ ENGINE = InnoDB;
 -- Table `lockey_db`.`Wallet`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `lockey_db`.`Wallet` (
-  `id_wal` INT NOT NULL,
+  `id_wal` INT NOT NULL AUTO_INCREMENT,
   `id_usr` INT NOT NULL,
   `nknm_wal` VARCHAR(10) NOT NULL,
   `nm_wal` VARCHAR(45) NOT NULL,
@@ -54,7 +54,7 @@ ENGINE = InnoDB;
 -- Table `lockey_db`.`ShippingType`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `lockey_db`.`ShippingType` (
-  `id_shpgtype` INT NOT NULL,
+  `id_shpgtype` INT NOT NULL AUTO_INCREMENT,
   `nm_shpgtype` VARCHAR(16) NOT NULL,
   `time_shpgtype` TIME NOT NULL,
   PRIMARY KEY (`id_shpgtype`))
@@ -104,7 +104,7 @@ ENGINE = InnoDB;
 -- Table `lockey_db`.`Locker`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `lockey_db`.`Locker` (
-  `id_lkr` INT NOT NULL,
+  `id_lkr` INT NOT NULL AUTO_INCREMENT,
   `nm_lkr` VARCHAR(45) NOT NULL,
   `dir_lkr` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id_lkr`))
@@ -115,7 +115,7 @@ ENGINE = InnoDB;
 -- Table `lockey_db`.`DoorType`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `lockey_db`.`DoorType` (
-  `id_drtype` INT NOT NULL,
+  `id_drtype` INT NOT NULL AUTO_INCREMENT,
   `nm_drtype` VARCHAR(16) NOT NULL,
   `hgt_drtype` DOUBLE NOT NULL,
   `wd_drtype` DOUBLE NOT NULL,
@@ -154,11 +154,11 @@ ENGINE = InnoDB;
 -- Table `lockey_db`.`Contact`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `lockey_db`.`Contact` (
-  `id_cont` INT NOT NULL,
+  `id_cont` INT NOT NULL AUTO_INCREMENT,
   `id_usr` INT NOT NULL,
   `nm_cont` VARCHAR(45) NOT NULL,
   `em_cont` VARCHAR(45) NOT NULL,
-  `tel_cont` INT(10) NOT NULL,
+  `tel_cont` VARCHAR(10) NOT NULL,
   PRIMARY KEY (`id_cont`),
   INDEX `fk_Contact_User_idx` (`id_usr` ASC) VISIBLE,
   CONSTRAINT `fk_Contact_User`
@@ -173,7 +173,7 @@ ENGINE = InnoDB;
 -- Table `lockey_db`.`Shipping-Door`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `lockey_db`.`Shipping-Door` (
-  `id_shpgdr` INT NOT NULL,
+  `id_shpgdr` INT NOT NULL AUTO_INCREMENT,
   `id_door` INT NOT NULL,
   `trk_shpg` INT NOT NULL,
   `id_cont` INT NOT NULL,
@@ -206,7 +206,7 @@ ENGINE = InnoDB;
 -- Table `lockey_db`.`Report`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `lockey_db`.`Report` (
-  `id_rpt` INT NOT NULL,
+  `id_rpt` INT NOT NULL AUTO_INCREMENT,
   `id_usr` INT NOT NULL,
   `id_door` INT NOT NULL,
   `trk_shpg` INT NULL,
@@ -238,7 +238,7 @@ ENGINE = InnoDB;
 -- Table `lockey_db`.`Route`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `lockey_db`.`Route` (
-  `id_rte` INT NOT NULL,
+  `id_rte` INT NOT NULL AUTO_INCREMENT,
   `id_usr` INT NOT NULL,
   `date_rte` DATETIME NOT NULL,
   `stat_rte` INT NOT NULL,
@@ -256,7 +256,7 @@ ENGINE = InnoDB;
 -- Table `lockey_db`.`RouteDetail`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `lockey_db`.`RouteDetail` (
-  `id_rtedtl` INT NOT NULL,
+  `id_rtedtl` INT NOT NULL AUTO_INCREMENT,
   `id_rte` INT NOT NULL,
   `id_lkr` INT NOT NULL,
   `ord_rtedtl` INT NOT NULL,
@@ -275,10 +275,10 @@ CREATE TABLE IF NOT EXISTS `lockey_db`.`RouteDetail` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE USER IF NOT EXISTS 'lockey_usr' IDENTIFIED BY 'lockey_pwd_issi_pz';
+-- CREATE USER 'lockey_usr' IDENTIFIED BY 'lockey_pwd_issi_pz';
 
-GRANT SELECT, INSERT, TRIGGER, UPDATE ON TABLE `lockey_db`.* TO 'lockey_usr';
-GRANT EXECUTE ON ROUTINE `lockey_db`.* TO 'lockey_usr';
+-- GRANT SELECT, INSERT, TRIGGER, UPDATE ON TABLE `lockey_db`.* TO 'lockey_usr';
+-- GRANT EXECUTE ON ROUTINE `lockey_db`.* TO 'lockey_usr';
 
 -- SET SQL_MODE=@OLD_SQL_MODE;
 -- SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
@@ -289,8 +289,8 @@ GRANT EXECUTE ON ROUTINE `lockey_db`.* TO 'lockey_usr';
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lockey_db`;
-INSERT INTO `lockey_db`.`User` (`id_usr`, `nm_usr`, `em_usr`, `tel_usr`, `pwd_usr`, `type_usr`, `tk_usr`) VALUES (DEFAULT, 'Gustavo Peduzzi', 'gustavopdzz0@gmail.com', 5610338516, 'e476acd96b5d450ccad79cc6bfa1f928784e47a713c4311c307a6db0f7ad8a41', 3, DEFAULT);
-INSERT INTO `lockey_db`.`User` (`id_usr`, `nm_usr`, `em_usr`, `tel_usr`, `pwd_usr`, `type_usr`, `tk_usr`) VALUES (DEFAULT, 'Luis Martinez', 'luis@lockeriit.com', 5566282790, '904d5a563bb1c36cd6bbcd35ffd2ffb15d167d75b56f5da68b927532cef1151f', 2, DEFAULT);
+INSERT INTO `lockey_db`.`User` (`id_usr`, `nm_usr`, `em_usr`, `tel_usr`, `pwd_usr`, `type_usr`, `tk_usr`) VALUES (DEFAULT, 'Gustavo Peduzzi', 'gustavopdzz0@gmail.com', '5610338516', 'e476acd96b5d450ccad79cc6bfa1f928784e47a713c4311c307a6db0f7ad8a41', 3, NULL);
+INSERT INTO `lockey_db`.`User` (`id_usr`, `nm_usr`, `em_usr`, `tel_usr`, `pwd_usr`, `type_usr`, `tk_usr`) VALUES (DEFAULT, 'Luis Martinez', 'luis@lockeriit.com', '5566282790', '904d5a563bb1c36cd6bbcd35ffd2ffb15d167d75b56f5da68b927532cef1151f', 2, NULL);
 
 COMMIT;
 
@@ -300,8 +300,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lockey_db`;
-INSERT INTO `lockey_db`.`ShippingType` (`id_shpgtype`, `nm_shpgtype`, `time_shpgtype`) VALUES (DEFAULT , 'Normal', '\'24:00:00\'');
-INSERT INTO `lockey_db`.`ShippingType` (`id_shpgtype`, `nm_shpgtype`, `time_shpgtype`) VALUES (DEFAULT, 'Express', '\'12:00:00\'');
+INSERT INTO `lockey_db`.`ShippingType` (`id_shpgtype`, `nm_shpgtype`, `time_shpgtype`) VALUES (DEFAULT, 'Normal', '24:00:00');
+INSERT INTO `lockey_db`.`ShippingType` (`id_shpgtype`, `nm_shpgtype`, `time_shpgtype`) VALUES (DEFAULT, 'Express', '12:00:00');
 
 COMMIT;
 
