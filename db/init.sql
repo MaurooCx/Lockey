@@ -317,3 +317,33 @@ INSERT INTO `lockey_db`.`DoorType` (`id_drtype`, `nm_drtype`, `hgt_drtype`, `wd_
 
 COMMIT;
 
+-- -----------------------------------------------------
+-- Data for table `lockey_db`.`Shipping`
+-- -----------------------------------------------------
+--START TRANSACTION;
+--USE `lockey_db`;
+--INSERT INTO `lockey_db`.`Shipping` (`trk_shpg`, `ownr_shpg`, `id_shpgtype`, `stat_shpg`, `dts_shpg`, `dte_shpg`, `pr_shpg`, `hgt_shpg`, `wd_shpg`, `deep_shpg`, `wt_shpg`, `id_wal`) VALUES (DEFAULT, 'Pequeño', 10.93, 40.64, 63.5, NULL);
+--INSERT INTO `lockey_db`.`Shipping` (`trk_shpg`, `ownr_shpg`, `id_shpgtype`, `stat_shpg`, `dts_shpg`, `dte_shpg`, `pr_shpg`, `hgt_shpg`, `wd_shpg`, `deep_shpg`, `wt_shpg`, `id_wal`) VALUES (DEFAULT, 'Mediano', 23.13, 40.64, 63.5, NULL);
+--INSERT INTO `lockey_db`.`Shipping` (`trk_shpg`, `ownr_shpg`, `id_shpgtype`, `stat_shpg`, `dts_shpg`, `dte_shpg`, `pr_shpg`, `hgt_shpg`, `wd_shpg`, `deep_shpg`, `wt_shpg`, `id_wal`) VALUES (DEFAULT, 'Grande', 50.8, 40.64, 63.5, NULL);
+
+--COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `lockey_db`.`Wallet`
+-- -----------------------------------------------------
+--START TRANSACTION;
+--USE `lockey_db`;
+--INSERT INTO `lockey_db`.`Wallet` (`id_wal`, `id_usr`, `nknm_wal`, `nm_wal`, `num_wal`, `date_wal`) VALUES (DEFAULT, 1, 10.93, 40.64, 63.5, curdate());
+
+--COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `lockey_db`.`Shipping`
+-- -----------------------------------------------------
+--START TRANSACTION;
+--USE `lockey_db`;
+--INSERT INTO `lockey_db`.`Shipping` (`trk_shpg`, `ownr_shpg`, `id_shpgtype`, `stat_shpg`, `dts_shpg`, `dte_shpg`, `pr_shpg`, `hgt_shpg`, `wd_shpg`, `deep_shpg`, `wt_shpg`, `id_wal`) VALUES (DEFAULT, 'Pequeño', 10.93, 40.64, 63.5, NULL);
+--INSERT INTO `lockey_db`.`Shipping` (`trk_shpg`, `ownr_shpg`, `id_shpgtype`, `stat_shpg`, `dts_shpg`, `dte_shpg`, `pr_shpg`, `hgt_shpg`, `wd_shpg`, `deep_shpg`, `wt_shpg`, `id_wal`) VALUES (DEFAULT, 'Mediano', 23.13, 40.64, 63.5, NULL);
+--INSERT INTO `lockey_db`.`Shipping` (`trk_shpg`, `ownr_shpg`, `id_shpgtype`, `stat_shpg`, `dts_shpg`, `dte_shpg`, `pr_shpg`, `hgt_shpg`, `wd_shpg`, `deep_shpg`, `wt_shpg`, `id_wal`) VALUES (DEFAULT, 'Grande', 50.8, 40.64, 63.5, NULL);
+
+--COMMIT;

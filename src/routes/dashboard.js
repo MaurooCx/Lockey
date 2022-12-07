@@ -1,6 +1,7 @@
 var debug = require('debug')('lockey:router:dashboard');
 var express = require('express');
 var router = express.Router();
+var db = require('../modules/MySQLConnection');
 
 router.get('/', (req, res, next) => {
 	debug('session.user:', req.session.user);
@@ -19,6 +20,11 @@ router.get('/cerrarsesion', (req, res, next) => {
 	} else {
 		res.redirect('/');
 	}
+});
+router.get('/envio');//envios historicos (esto de momento no)
+router.get('/envio/detalles', (req,res,next) =>{
+	//detalles de los envios
+	
 });
 
 module.exports = router;
