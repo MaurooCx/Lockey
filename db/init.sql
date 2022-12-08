@@ -305,3 +305,14 @@ INSERT INTO `lockey_db`.`Door` (`id_door`, `id_lkr`, `id_drtype`, `nm_door`, `st
 INSERT INTO `lockey_db`.`Door` (`id_door`, `id_lkr`, `id_drtype`, `nm_door`, `stat_door`) VALUES (DEFAULT, 2, 1, , 03, 3);
 
 COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `lockey_db`.`Contact`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `lockey_db`;
+INSERT INTO `lockey_db`.`Contact` (`id_cont`, `id_usr`, `nm_cont`, `em_cont`, `tel_cont`) VALUES (DEFAULT, 1, 2, , 01, 1);
+INSERT INTO `lockey_db`.`Contact` (`id_cont`, `id_usr`, `nm_cont`, `em_cont`, `tel_cont`) VALUES (DEFAULT, 1, 2, , 01, 1);
+INSERT INTO `lockey_db`.`Contact` (`id_cont`, `id_usr`, `nm_cont`, `em_cont`, `tel_cont`) VALUES (DEFAULT, 1, 2, , 01, 1);
+
+COMMIT;
