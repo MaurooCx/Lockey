@@ -65,7 +65,7 @@ ENGINE = InnoDB;
 -- Table `lockey_db`.`Shipping`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `lockey_db`.`Shipping` (
-  `trk_shpg` INT NOT NULL,
+  `trk_shpg` INT(18) NOT NULL,
   `id_usr` INT NOT NULL,
   `id_shpgtype` INT NOT NULL,
   `stat_shpg` INT NOT NULL,
