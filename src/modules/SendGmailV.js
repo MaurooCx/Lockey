@@ -28,12 +28,11 @@
 	
 	  // send mail with defined transport object
 	  let info = await transporter.sendMail({
-		from: '"Fred Foo 👻" <foo@example.com>', // sender address
+		from: '"Fred Foo 👻" ', // sender address
 		to: "jonatgp5@gmail.com" , // list of receivers
 		subject: "Hello ✔", // Subject line
 		text: b , // plain text body
-		html: "<b>"+ b +" <b>", // html body
-	  });
+		html: "<b>" + b +" </b>"});
 	
 	  console.log("Message sent: %S", info.messageId);
 	  // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>

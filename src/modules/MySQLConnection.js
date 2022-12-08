@@ -97,6 +97,15 @@ const db = {
 				reject(err);
 			});
 		});
+	},
+
+	verifycode: (email, token) => {
+		return new Promise((resolve, reject) => {
+			con.query('SELECT * FROM User WHERE em_usr = ? AND tk_usr = ? LIMIT 1', [email,token], (err, results) => {
+				if (err) reject(err);
+				else resolve(results);
+			});
+		});
 	}
 };
 
