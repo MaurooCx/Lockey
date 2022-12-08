@@ -313,13 +313,13 @@ COMMIT;
 -- -----------------------------------------------------
 -- Data for table `lockey_db`.`Shipping`
 -- -----------------------------------------------------
---START TRANSACTION;
---USE `lockey_db`;
---INSERT INTO `lockey_db`.`Shipping` (`trk_shpg`, `ownr_shpg`, `id_shpgtype`, `stat_shpg`, `dts_shpg`, `dte_shpg`, `pr_shpg`, `hgt_shpg`, `wd_shpg`, `deep_shpg`, `wt_shpg`, `id_wal`) VALUES (DEFAULT, 'Pequeño', 10.93, 40.64, 63.5, NULL);
---INSERT INTO `lockey_db`.`Shipping` (`trk_shpg`, `ownr_shpg`, `id_shpgtype`, `stat_shpg`, `dts_shpg`, `dte_shpg`, `pr_shpg`, `hgt_shpg`, `wd_shpg`, `deep_shpg`, `wt_shpg`, `id_wal`) VALUES (DEFAULT, 'Mediano', 23.13, 40.64, 63.5, NULL);
---INSERT INTO `lockey_db`.`Shipping` (`trk_shpg`, `ownr_shpg`, `id_shpgtype`, `stat_shpg`, `dts_shpg`, `dte_shpg`, `pr_shpg`, `hgt_shpg`, `wd_shpg`, `deep_shpg`, `wt_shpg`, `id_wal`) VALUES (DEFAULT, 'Grande', 50.8, 40.64, 63.5, NULL);
+-- START TRANSACTION;
+-- USE `lockey_db`;
+-- INSERT INTO `lockey_db`.`Shipping` (`trk_shpg`, `ownr_shpg`, `id_shpgtype`, `stat_shpg`, `dts_shpg`, `dte_shpg`, `pr_shpg`, `hgt_shpg`, `wd_shpg`, `deep_shpg`, `wt_shpg`, `id_wal`) VALUES (DEFAULT, 'Pequeño', 10.93, 40.64, 63.5, NULL);
+-- INSERT INTO `lockey_db`.`Shipping` (`trk_shpg`, `ownr_shpg`, `id_shpgtype`, `stat_shpg`, `dts_shpg`, `dte_shpg`, `pr_shpg`, `hgt_shpg`, `wd_shpg`, `deep_shpg`, `wt_shpg`, `id_wal`) VALUES (DEFAULT, 'Mediano', 23.13, 40.64, 63.5, NULL);
+-- INSERT INTO `lockey_db`.`Shipping` (`trk_shpg`, `ownr_shpg`, `id_shpgtype`, `stat_shpg`, `dts_shpg`, `dte_shpg`, `pr_shpg`, `hgt_shpg`, `wd_shpg`, `deep_shpg`, `wt_shpg`, `id_wal`) VALUES (DEFAULT, 'Grande', 50.8, 40.64, 63.5, NULL);
 
---COMMIT;
+-- COMMIT;
 
 -- -----------------------------------------------------
 -- Data for table `lockey_db`.`Locker`
