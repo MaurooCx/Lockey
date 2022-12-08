@@ -81,20 +81,40 @@ const db = {
 	},
 	
 	// create new user with validation
-	createUser: (name, email, tel, password, type) => {
+	createUser: (name, email, tel, password, type,token) => {
 		return new Promise((resolve, reject) => {
 			// check if email is already in use
 			db.getUSerByEmail(email).then((results) => {
 				if (results.length > 0) reject('Correo ya en uso');
 				else {
 					// create new user
-					con.query('INSERT INTO User VALUES (NULL, ?, ?, ?, ?, ?)', [name, email, tel, password, type], (err, results) => {
+					con.query('INSERT INTO User VALUES (NULL, ?, ?, ?, ?, ? , ? )', [name, email, tel, password, type,token], (err, results) => {
 						if (err) reject(err);
 						else resolve(results);
 					});
 				}
 			}).catch((err) => {
 				reject(err);
+			});
+		});
+	},
+
+	// Obtener todos los registros de la tabla Shipping
+	getShipping: () => {
+		return new Promise((resolve, reject) => {
+			con.query('SELECT * FROM Shipping', (err, results) => {
+				if (err) reject(err);
+				else resolve(results);
+			});
+		});
+	},
+
+	// Obtener registros de shipping por estado del envio
+	getShpgByStat: (stat) => {
+		return new Promise((resolve, reject) => {
+			con.query('SELECT * FROM Shipping WHERE stat_shpg = ? LIMIT 7', [stat], (err, results) => {
+				if (err) reject(err);
+				else resolve(results);
 			});
 		});
 	}

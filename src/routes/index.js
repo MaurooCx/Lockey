@@ -3,6 +3,7 @@ var express = require('express');
 var router = express.Router();
 var crypto = require('node:crypto');
 var db = require('../modules/MySQLConnection');
+var val	 = require('../modules/SendGmailV');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -47,9 +48,9 @@ router.route('/registro')
 		debug(req.body);
 		let {name, email, tel, password} = req.body;
 		password = crypto.createHash('sha256').update(password).digest('hex');
-
-		// create new user
-		db.createUser(name, email, tel, password, db.ROLES.CLIENT).then((results) => {
+		let token =codigoVerificacion(email);
+		console.log(token);
+		db.createUser(name, email, tel, password, db.ROLES.CLIENT,token).then((results) => {
 			debug('results', results);
 			if (results.affectedRows > 0) {
 				// get user by id
@@ -81,6 +82,28 @@ router.route('/registro')
 			debug(err);
 			res.status(402).json({response:'ERROR', message:err});
 		});
+	});
+
+	function codigoVerificacion(email){
+
+	   	let num = 0;
+		let random = Math.random();
+		random = random * (899999) + 100000;
+		random = Math.trunc(random);
+		num = random;
+		console.log(num);
+		val.ValUser(email,num);
+		return num;
+	   };
+
+	router.route('/verificador')
+	.post((req, res, next) => {
+		debug(req.body);
+		let {NUM1, NUM2, NUM3, NUM4,NUM5,NUM6} = req.body;
+		const fullnumber = NUM1 + NUM2 + NUM3 + NUM4+ NUM5 + NUM6;
+		let VerifyNumber = Number(fullnumber);
+
+
 	});
 
 
