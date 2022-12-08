@@ -290,6 +290,7 @@ CREATE OR REPLACE VIEW `vUser` AS
     SELECT 
         id_usr,
         nm_usr,
+        pwd_usr,
         em_usr,
         tel_usr,
         tk_usr,
