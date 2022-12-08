@@ -16,8 +16,7 @@ CREATE TABLE IF NOT EXISTS `lockey_db`.`User` (
   `type_usr` INT NOT NULL,
   `tk_usr` INT(6) NULL,
   PRIMARY KEY (`id_usr`))
-
-
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `lockey_db`.`Wallet`
@@ -34,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `lockey_db`.`Wallet` (
   CONSTRAINT `fk_wallet_user`
     FOREIGN KEY (`id_usr`) REFERENCES `lockey_db`.`User` (`id_usr`)
     ON DELETE NO ACTION ON UPDATE NO ACTION)
-
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `lockey_db`.`ShippingType`
@@ -44,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `lockey_db`.`ShippingType` (
   `nm_shpgtype` VARCHAR(16) NOT NULL,
   `time_shpgtype` TIME NOT NULL,
   PRIMARY KEY (`id_shpgtype`))
-
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `lockey_db`.`Shipping`
@@ -76,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `lockey_db`.`Shipping` (
   CONSTRAINT `fk_shipping)shippingtype`
     FOREIGN KEY (`id_shpgtype`) REFERENCES `lockey_db`.`ShippingType` (`id_shpgtype`)
     ON DELETE NO ACTION ON UPDATE NO ACTION)
-
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `lockey_db`.`Locker`
@@ -86,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `lockey_db`.`Locker` (
   `nm_lkr` VARCHAR(45) NOT NULL,
   `dir_lkr` VARCHAR(150) NOT NULL,
   PRIMARY KEY (`id_lkr`))
-
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `lockey_db`.`DoorType`
@@ -99,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `lockey_db`.`DoorType` (
   `deep_drtype` DOUBLE NOT NULL,
   `wt_drtype` DOUBLE NULL,
   PRIMARY KEY (`id_drtype`))
-
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `lockey_db`.`Door`
@@ -119,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `lockey_db`.`Door` (
   CONSTRAINT `fk_door_doortype`
     FOREIGN KEY (`id_drtype`) REFERENCES `lockey_db`.`DoorType` (`id_drtype`)
     ON DELETE NO ACTION ON UPDATE NO ACTION)
-
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `lockey_db`.`Contact`
@@ -135,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `lockey_db`.`Contact` (
   CONSTRAINT `fk_Contact_User`
     FOREIGN KEY (`id_usr`) REFERENCES `lockey_db`.`User` (`id_usr`)
     ON DELETE NO ACTION ON UPDATE NO ACTION)
-
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `lockey_db`.`Shipping-Door`
@@ -161,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `lockey_db`.`Shipping-Door` (
   CONSTRAINT `fk_shipping-door_contact`
     FOREIGN KEY (`id_cont`) REFERENCES `lockey_db`.`Contact` (`id_cont`)
     ON DELETE NO ACTION ON UPDATE NO ACTION)
-
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `lockey_db`.`Report`
@@ -186,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `lockey_db`.`Report` (
   CONSTRAINT `fk_report_shipping`
     FOREIGN KEY (`trk_shpg`) REFERENCES `lockey_db`.`Shipping` (`trk_shpg`)
     ON DELETE NO ACTION ON UPDATE NO ACTION)
-
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `lockey_db`.`Route`
@@ -201,7 +200,7 @@ CREATE TABLE IF NOT EXISTS `lockey_db`.`Route` (
   CONSTRAINT `fk_route_user`
     FOREIGN KEY (`id_usr`) REFERENCES `lockey_db`.`User` (`id_usr`)
     ON DELETE NO ACTION ON UPDATE NO ACTION)
-
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `lockey_db`.`RouteDetail`
