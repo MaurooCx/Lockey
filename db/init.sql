@@ -175,7 +175,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `lockey_db`.`ShippingDoor` (
   `id_shpgdr` INT NOT NULL AUTO_INCREMENT,
   `id_door` INT NOT NULL,
-  `trk_shpg` INT NOT NULL,
+  `trk_shpg` VARCHAR(18) NOT NULL,
   `id_cont` INT NOT NULL,
   `edge_shpgdr` INT(1) NOT NULL,
   `busy_shpgdr` INT(1) NOT NULL DEFAULT 0,
@@ -368,9 +368,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lockey_db`;
-INSERT INTO `lockey_db`.`ShippingDoor` (`id_shpgdr`, `id_door`, `trk_shpg`, `id_cont`, `edge_shpgdr`, `busy_shpgdr`, `qr_shpgdr`) VALUES (DEFAULT, 1, 202212150310001002, 3, 1, 1, 456723);
-INSERT INTO `lockey_db`.`ShippingDoor` (`id_shpgdr`, `id_door`, `trk_shpg`, `id_cont`, `edge_shpgdr`, `busy_shpgdr`, `qr_shpgdr`) VALUES (DEFAULT, 2, 202212130530002001, 2, 1, 1, 897643);
-INSERT INTO `lockey_db`.`ShippingDoor` (`id_shpgdr`, `id_door`, `trk_shpg`, `id_cont`, `edge_shpgdr`, `busy_shpgdr`, `qr_shpgdr`) VALUES (DEFAULT, 3, 202212140630003003, 1, 1, 1, 720372);
+INSERT INTO `lockey_db`.`ShippingDoor` (`id_shpgdr`, `id_door`, `trk_shpg`, `id_cont`, `edge_shpgdr`, `busy_shpgdr`, `qr_shpgdr`) VALUES (DEFAULT, 1, '202212150310001002', 3, 1, 1, 456723);
+INSERT INTO `lockey_db`.`ShippingDoor` (`id_shpgdr`, `id_door`, `trk_shpg`, `id_cont`, `edge_shpgdr`, `busy_shpgdr`, `qr_shpgdr`) VALUES (DEFAULT, 2, '202212130530002001', 2, 1, 1, 897643);
+INSERT INTO `lockey_db`.`ShippingDoor` (`id_shpgdr`, `id_door`, `trk_shpg`, `id_cont`, `edge_shpgdr`, `busy_shpgdr`, `qr_shpgdr`) VALUES (DEFAULT, 3, '202212140630003003', 1, 1, 1, 720372);
 COMMIT;
 
 -- -----------------------------------------------------
@@ -400,8 +400,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lockey_db`;
-INSERT INTO `lockey_db`.`RouteDetail` (`id_rtedtl`, `id_rte`, `id_lkr`, `ord_rtedtl`) VALUES (DEFAULT, 1, 1, '1 y 2');
-INSERT INTO `lockey_db`.`RouteDetail` (`id_rtedtl`, `id_rte`, `id_lkr`, `ord_rtedtl`) VALUES (DEFAULT, 2, 2, '2 y 1');
-INSERT INTO `lockey_db`.`RouteDetail` (`id_rtedtl`, `id_rte`, `id_lkr`, `ord_rtedtl`) VALUES (DEFAULT, 3, 1, '1 y 2');
+INSERT INTO `lockey_db`.`RouteDetail` (`id_rtedtl`, `id_rte`, `id_lkr`, `ord_rtedtl`) VALUES (DEFAULT, 1, 1, 1);
+INSERT INTO `lockey_db`.`RouteDetail` (`id_rtedtl`, `id_rte`, `id_lkr`, `ord_rtedtl`) VALUES (DEFAULT, 2, 2, 2);
+INSERT INTO `lockey_db`.`RouteDetail` (`id_rtedtl`, `id_rte`, `id_lkr`, `ord_rtedtl`) VALUES (DEFAULT, 3, 1, 1);
 
 COMMIT;
