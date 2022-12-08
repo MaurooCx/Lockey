@@ -1,8 +1,15 @@
 extends layout
 
 block content
-	| Dashboard
-	i= user.name
-	| You're welcome
+	if user.type == 'ADMIN'
+		| Admin Dashboard
+	else if user.type == 'DELIVER'
+		| Deliver Dashboard
+	else if user.type == 'CLIENT'
+		| Client Dashboard
+	else
+		| Usuario desconocido
+
 block scripts
+	script const user = !{JSON.stringify(user)}
 	script(src='/javascripts/validation.js')
