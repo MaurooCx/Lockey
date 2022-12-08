@@ -378,9 +378,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lockey_db`;
-INSERT INTO `lockey_db`.`Report` (`id_rpt`, `id_usr`, `id_door`, `trk_shpg`, `tit_rpt`, `msg_rpt`) VALUES (DEFAULT, 1, 1, 'rastreo', 'Puerta aberiada', 'La puerta del casillero 03 del locker Santa fe esta atorada y no abre');
-INSERT INTO `lockey_db`.`Report` (`id_rpt`, `id_usr`, `id_door`, `trk_shpg`, `tit_rpt`, `msg_rpt`) VALUES (DEFAULT, 2, 2, 'Casillero sucio', 'El casillero 01 del locker de Plaza torres esta sucio, necesita limpieza');
-INSERT INTO `lockey_db`.`Report` (`id_rpt`, `id_usr`, `id_door`, `trk_shpg`, `tit_rpt`, `msg_rpt`) VALUES (DEFAULT, 2, 3, 'Paquete abierto', 'El paquete que recibi en el locker esta abierto');
+INSERT INTO `lockey_db`.`Report` (`id_rpt`, `id_usr`, `id_door`, `trk_shpg`, `tit_rpt`, `msg_rpt`) VALUES (DEFAULT, 1, 1, '202212150310001002', 'Puerta aberiada', 'La puerta del casillero 03 del locker Santa fe esta atorada y no abre');
+INSERT INTO `lockey_db`.`Report` (`id_rpt`, `id_usr`, `id_door`, `trk_shpg`, `tit_rpt`, `msg_rpt`) VALUES (DEFAULT, 2, 2, '202212130530002001', 'El casillero 01 del locker de Plaza torres esta sucio, necesita limpieza');
+INSERT INTO `lockey_db`.`Report` (`id_rpt`, `id_usr`, `id_door`, `trk_shpg`, `tit_rpt`, `msg_rpt`) VALUES (DEFAULT, 2, 3, '202212140630003003', 'El paquete que recibi en el locker esta abierto');
 
 COMMIT;
 
