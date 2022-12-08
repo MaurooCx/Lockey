@@ -1,12 +1,42 @@
+
 form.needs-validation(action='/identificacion' method='POST' novalidate)
 	#mailverificationModal.modal.fade(tabindex='-1' data-bs-backdrop="static" aria-hidden='true')
 		.modal-dialog.modal-dialog-centered.modal-dialog-scrollable
 				.modal-content
 					.modal-header
-						h1.modal-title.fs-5 Inicia sesión
+						h1.modal-title.fs-5 Confirma Correo Electrónico
 						button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
 					.modal-body
-						| here goes the mail verification form
+						p Te hemos enviado un correo electrónico con un código.
+						p Para completar la verificación de tu cuenta, por favor , ingresa el código de activación de 6 dígitos.
+						.form-floating.mb-3
+							div.row
+								div.col-2.p-3
+									input#pwdInputSignin.form-control(type='text' maxlength="1")
+								div.col-2.p-3
+								
+									input#pwdInputSignin.form-control(type='text' maxlength="1")
+								div.col-2.p-3
+								
+									input#pwdInputSignin.form-control(type='text' maxlength="1")
+								div.col-2.p-3
+								
+									input#pwdInputSignin.form-control(type='text' maxlength="1")
+								div.col-2.p-3
+	
+									input#pwdInputSignin.form-control(type='text' maxlength="1")
+								div.col-2.p-3
+									input#pwdInputSignin.form-control(type='text' maxlength="1")
+						
+									
+								
+						
+						button.btn(type='button' data-bs-target='#signupModal' data-bs-toggle='modal') Reenviar codigo 
+					
+
 					.modal-footer
 						button.btn.btn-danger(type='reset' data-bs-dismiss='modal') Cancelar
-						button.btn.btn-primary(type='submit') Iniciar sesión
+						button.btn.btn-primary(type='submit') Confirmar
+	
+
+						

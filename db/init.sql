@@ -170,9 +170,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `lockey_db`.`Shipping-Door`
+-- Table `lockey_db`.`ShippingDoor`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `lockey_db`.`Shipping-Door` (
+CREATE TABLE IF NOT EXISTS `lockey_db`.`ShippingDoor` (
   `id_shpgdr` INT NOT NULL AUTO_INCREMENT,
   `id_door` INT NOT NULL,
   `trk_shpg` INT NOT NULL,
@@ -181,20 +181,20 @@ CREATE TABLE IF NOT EXISTS `lockey_db`.`Shipping-Door` (
   `busy_shpgdr` INT(1) NOT NULL DEFAULT 0,
   `qr_shpgdr` INT(6) NULL,
   PRIMARY KEY (`id_shpgdr`),
-  INDEX `fk_shipping-door_shipping_idx` (`trk_shpg` ASC) VISIBLE,
-  INDEX `fk_shipping-door_door_idx` (`id_door` ASC) VISIBLE,
-  INDEX `fk_shipping-door_contact_idx` (`id_cont` ASC) VISIBLE,
-  CONSTRAINT `fk_shipping-door_shipping`
+  INDEX `fk_shippingdoor_shipping_idx` (`trk_shpg` ASC) VISIBLE,
+  INDEX `fk_shippingdoor_door_idx` (`id_door` ASC) VISIBLE,
+  INDEX `fk_shippingdoor_contact_idx` (`id_cont` ASC) VISIBLE,
+  CONSTRAINT `fk_shippingdoor_shipping`
     FOREIGN KEY (`trk_shpg`)
     REFERENCES `lockey_db`.`Shipping` (`trk_shpg`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_shipping-door_door`
+  CONSTRAINT `fk_shippingdoor_door`
     FOREIGN KEY (`id_door`)
     REFERENCES `lockey_db`.`Door` (`id_door`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_shipping-door_contact`
+  CONSTRAINT `fk_shippingdoor_contact`
     FOREIGN KEY (`id_cont`)
     REFERENCES `lockey_db`.`Contact` (`id_cont`)
     ON DELETE NO ACTION
