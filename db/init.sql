@@ -65,7 +65,7 @@ ENGINE = InnoDB;
 -- Table `lockey_db`.`Shipping`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `lockey_db`.`Shipping` (
-  `trk_shpg` INT(18) NOT NULL,
+  `trk_shpg` VARCHAR(18) NOT NULL,
   `id_usr` INT NOT NULL,
   `id_shpgtype` INT NOT NULL,
   `stat_shpg` INT NOT NULL,
@@ -315,9 +315,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lockey_db`;
-INSERT INTO `lockey_db`.`Shipping` (`trk_shpg`, `id_usr`, `id_shpgtype`, `stat_shpg`, `dts_shpg`, `dte_shpg`, `pr_shpg`, `hgt_shpg`, `wd_shpg`, `deep_shpg`, `wt_shpg`, `id_wal`) VALUES (202212150310001002, 1, 1, 1, '2022-12-15 03:10:00', NULL, 78.50, 63.5, 26.75, 12.00, 2.35, 1);
-INSERT INTO `lockey_db`.`Shipping` (`trk_shpg`, `id_usr`, `id_shpgtype`, `stat_shpg`, `dts_shpg`, `dte_shpg`, `pr_shpg`, `hgt_shpg`, `wd_shpg`, `deep_shpg`, `wt_shpg`, `id_wal`) VALUES (202212130530002001, 2, 2, 3, '2022-12-13 05:30:00', NULL, 112.99, 14.5, 7.23, 15.23, 4.56, 1);
-INSERT INTO `lockey_db`.`Shipping` (`trk_shpg`, `id_usr`, `id_shpgtype`, `stat_shpg`, `dts_shpg`, `dte_shpg`, `pr_shpg`, `hgt_shpg`, `wd_shpg`, `deep_shpg`, `wt_shpg`, `id_wal`) VALUES (202212140630003003, 1, 2, 4, '2022-12-14 06:25:00', NULL, 135.01, 40.64, 33.30, 63.5, 18.00, 10.58, 2);
+INSERT INTO `lockey_db`.`Shipping` (`trk_shpg`, `id_usr`, `id_shpgtype`, `stat_shpg`, `dts_shpg`, `dte_shpg`, `pr_shpg`, `hgt_shpg`, `wd_shpg`, `deep_shpg`, `wt_shpg`, `id_wal`) VALUES ('202212150310001002', 1, 1, 1, '2022-12-15 03:10:00', NULL, 78.50, 63.5, 26.75, 12.00, 2.35, 1);
+INSERT INTO `lockey_db`.`Shipping` (`trk_shpg`, `id_usr`, `id_shpgtype`, `stat_shpg`, `dts_shpg`, `dte_shpg`, `pr_shpg`, `hgt_shpg`, `wd_shpg`, `deep_shpg`, `wt_shpg`, `id_wal`) VALUES ('202212130530002001', 2, 2, 3, '2022-12-13 05:30:00', NULL, 112.99, 14.5, 7.23, 15.23, 4.56, 1);
+INSERT INTO `lockey_db`.`Shipping` (`trk_shpg`, `id_usr`, `id_shpgtype`, `stat_shpg`, `dts_shpg`, `dte_shpg`, `pr_shpg`, `hgt_shpg`, `wd_shpg`, `deep_shpg`, `wt_shpg`, `id_wal`) VALUES ('202212140630003003', 1, 2, 4, '2022-12-14 06:25:00', NULL, 135.01, 40.64, 33.30, 63.5, 18.00, 10.58, 2);
 COMMIT;
 
 -- -----------------------------------------------------
