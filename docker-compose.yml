@@ -7,7 +7,7 @@ services:
     volumes:
       - ./db/init.sql:/docker-entrypoint-initdb.d/0_init.sql
     ports:
-      - '${MYSQL_PORT}:3306'
+      - '${MYSQL_PORT_EXT}:${MYSQL_PORT}'
     expose:
       - '${MYSQL_PORT}'
     networks:
@@ -17,7 +17,7 @@ services:
       - 'MYSQL_USER=${MYSQL_USER}'
       - 'MYSQL_PASSWORD=${MYSQL_PASSWORD}'
       - 'MYSQL_ALLOW_EMPTY_PASSWORD=${MYSQL_ALLOW_EMPTY_PASSWORD}'
-      - 'SERVICE_TAGS=${SERVICE_TAGS}'
+      - 'SERVICE_TAGS=${NODE_ENV}'
       - 'SERVICE_NAME=mysql'
 
   node:
@@ -39,11 +39,11 @@ services:
       - 'MYSQL_USER=${MYSQL_USER}'
       - 'MYSQL_PASSWORD=${MYSQL_PASSWORD}'
       - 'MYSQL_DATABASE=${MYSQL_DATABASE}'
-      - 'NODE_ENV=${NODE_ENV}'
-      - 'SERVICE_TAGS=${SERVICE_TAGS}'
-      - 'SERVICE_NAME=lockey'
-      - 'SERVER_PORT=${SERVER_PORT}'
       - 'DEBUG=${DEBUG}'
+      - 'SERVER_PORT=${SERVER_PORT}'
+      - 'NODE_ENV=${NODE_ENV}'
+      - 'SERVICE_TAGS=${NODE_ENV}'
+      - 'SERVICE_NAME=lockey'
 
 networks:
   internalnet:
