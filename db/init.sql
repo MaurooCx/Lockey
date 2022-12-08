@@ -364,13 +364,13 @@ INSERT INTO `lockey_db`.`Contact` (`id_cont`, `id_usr`, `nm_cont`, `em_cont`, `t
 COMMIT;
 
 -- -----------------------------------------------------
--- Data for table `lockey_db`.`Shipping-Door`
+-- Data for table `lockey_db`.`ShippingDoor`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lockey_db`;
-INSERT INTO `lockey_db`.`Shipping-Door` (`id_shpgdr`, `id_door`, `trk_shpg`, `id_cont`, `edge_shpgdr`, `busy_shpgdr`, `qr_shpgdr`) VALUES (DEFAULT, 1, 202212150310001002, 3, 1, 1, 456723);
-INSERT INTO `lockey_db`.`Shipping-Door` (`id_shpgdr`, `id_door`, `trk_shpg`, `id_cont`, `edge_shpgdr`, `busy_shpgdr`, `qr_shpgdr`) VALUES (DEFAULT, 2, 202212130530002001, 2, 1, 1, 897643);
-INSERT INTO `lockey_db`.`Shipping-Door` (`id_shpgdr`, `id_door`, `trk_shpg`, `id_cont`, `edge_shpgdr`, `busy_shpgdr`, `qr_shpgdr`) VALUES (DEFAULT, 3, 202212140630003003, 1, 1, 1, 720372);
+INSERT INTO `lockey_db`.`ShippingDoor` (`id_shpgdr`, `id_door`, `trk_shpg`, `id_cont`, `edge_shpgdr`, `busy_shpgdr`, `qr_shpgdr`) VALUES (DEFAULT, 1, 202212150310001002, 3, 1, 1, 456723);
+INSERT INTO `lockey_db`.`ShippingDoor` (`id_shpgdr`, `id_door`, `trk_shpg`, `id_cont`, `edge_shpgdr`, `busy_shpgdr`, `qr_shpgdr`) VALUES (DEFAULT, 2, 202212130530002001, 2, 1, 1, 897643);
+INSERT INTO `lockey_db`.`ShippingDoor` (`id_shpgdr`, `id_door`, `trk_shpg`, `id_cont`, `edge_shpgdr`, `busy_shpgdr`, `qr_shpgdr`) VALUES (DEFAULT, 3, 202212140630003003, 1, 1, 1, 720372);
 COMMIT;
 
 -- -----------------------------------------------------
@@ -389,9 +389,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lockey_db`;
-INSERT INTO `lockey_db`.`Report` (`id_rte`, `id_usr`, `date_rte`, `stat_rte`) VALUES (DEFAULT, 1, '2022-12-15 03:15:00', 1);
-INSERT INTO `lockey_db`.`Report` (`id_rte`, `id_usr`, `date_rte`, `stat_rte`) VALUES (DEFAULT, 2, '2022-12-13 05:35:24', 1);
-INSERT INTO `lockey_db`.`Report` (`id_rte`, `id_usr`, `date_rte`, `stat_rte`) VALUES (DEFAULT, 2, '2022-12-14 06:30:16', 1);
+INSERT INTO `lockey_db`.`Route` (`id_rte`, `id_usr`, `date_rte`, `stat_rte`) VALUES (DEFAULT, 1, '2022-12-15 03:15:00', 1);
+INSERT INTO `lockey_db`.`Route` (`id_rte`, `id_usr`, `date_rte`, `stat_rte`) VALUES (DEFAULT, 2, '2022-12-13 05:35:24', 1);
+INSERT INTO `lockey_db`.`Route` (`id_rte`, `id_usr`, `date_rte`, `stat_rte`) VALUES (DEFAULT, 2, '2022-12-14 06:30:16', 1);
 
 COMMIT;
 
@@ -400,8 +400,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lockey_db`;
-INSERT INTO `lockey_db`.`Report` (`id_rtedtl`, `id_rte`, `id_lkr`, `ord_rtedtl`) VALUES (DEFAULT, 1, 1, '1 y 2');
-INSERT INTO `lockey_db`.`Report` (`id_rtedtl`, `id_rte`, `id_lkr`, `ord_rtedtl`) VALUES (DEFAULT, 2, 2, '2 y 1');
-INSERT INTO `lockey_db`.`Report` (`id_rtedtl`, `id_rte`, `id_lkr`, `ord_rtedtl`) VALUES (DEFAULT, 3, 1, '1 y 2');
+INSERT INTO `lockey_db`.`RouteDetail` (`id_rtedtl`, `id_rte`, `id_lkr`, `ord_rtedtl`) VALUES (DEFAULT, 1, 1, '1 y 2');
+INSERT INTO `lockey_db`.`RouteDetail` (`id_rtedtl`, `id_rte`, `id_lkr`, `ord_rtedtl`) VALUES (DEFAULT, 2, 2, '2 y 1');
+INSERT INTO `lockey_db`.`RouteDetail` (`id_rtedtl`, `id_rte`, `id_lkr`, `ord_rtedtl`) VALUES (DEFAULT, 3, 1, '1 y 2');
 
 COMMIT;
