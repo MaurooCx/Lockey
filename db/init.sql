@@ -209,7 +209,7 @@ CREATE TABLE IF NOT EXISTS `lockey_db`.`Report` (
   `id_rpt` INT NOT NULL AUTO_INCREMENT,
   `id_usr` INT NOT NULL,
   `id_door` INT NOT NULL,
-  `trk_shpg` INT NULL,
+  `trk_shpg` VARCHAR(18) NULL,
   `tit_rpt` VARCHAR(45) NOT NULL,
   `msg_rpt` VARCHAR(256) NULL,
   PRIMARY KEY (`id_rpt`),
