@@ -24,7 +24,7 @@ router.get('/cerrarsesion', (req, res, next) => {
 router.get('/envio');//envios historicos (esto de momento no)
 router.get('/envio/detalles', (req,res,next) =>{
 	//detalles de los envios
-	
+	 
 });
 
 module.exports = router;

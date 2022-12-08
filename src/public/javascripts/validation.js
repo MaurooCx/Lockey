@@ -107,10 +107,14 @@ function validatePassword(form) {
 					if (data.response == 'OK')
 						if (data.redirect !== '')
 							window.location.href = data.redirect;
-						else
+						else {
+							console.log(data.message);
 							toast(data.message, TOAST_TYPES.SUCCESS);
-					else
+						}
+					else {
+						console.log(data.message);
 						toast(data.message, TOAST_TYPES.DANGER);
+					}
 					
 				})
 				.catch(err => {

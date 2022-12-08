@@ -65,7 +65,7 @@ ENGINE = InnoDB;
 -- Table `lockey_db`.`Shipping`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `lockey_db`.`Shipping` (
-  `trk_shpg` INT NOT NULL,
+  `trk_shpg` VARCHAR(18) NOT NULL,
   `id_usr` INT NOT NULL,
   `id_shpgtype` INT NOT NULL,
   `stat_shpg` INT NOT NULL,
@@ -170,31 +170,31 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `lockey_db`.`Shipping-Door`
+-- Table `lockey_db`.`ShippingDoor`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `lockey_db`.`Shipping-Door` (
+CREATE TABLE IF NOT EXISTS `lockey_db`.`ShippingDoor` (
   `id_shpgdr` INT NOT NULL AUTO_INCREMENT,
   `id_door` INT NOT NULL,
-  `trk_shpg` INT NOT NULL,
+  `trk_shpg` VARCHAR(18) NOT NULL,
   `id_cont` INT NOT NULL,
   `edge_shpgdr` INT(1) NOT NULL,
   `busy_shpgdr` INT(1) NOT NULL DEFAULT 0,
   `qr_shpgdr` INT(6) NULL,
   PRIMARY KEY (`id_shpgdr`),
-  INDEX `fk_shipping-door_shipping_idx` (`trk_shpg` ASC) VISIBLE,
-  INDEX `fk_shipping-door_door_idx` (`id_door` ASC) VISIBLE,
-  INDEX `fk_shipping-door_contact_idx` (`id_cont` ASC) VISIBLE,
-  CONSTRAINT `fk_shipping-door_shipping`
+  INDEX `fk_shippingdoor_shipping_idx` (`trk_shpg` ASC) VISIBLE,
+  INDEX `fk_shippingdoor_door_idx` (`id_door` ASC) VISIBLE,
+  INDEX `fk_shippingdoor_contact_idx` (`id_cont` ASC) VISIBLE,
+  CONSTRAINT `fk_shippingdoor_shipping`
     FOREIGN KEY (`trk_shpg`)
     REFERENCES `lockey_db`.`Shipping` (`trk_shpg`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_shipping-door_door`
+  CONSTRAINT `fk_shippingdoor_door`
     FOREIGN KEY (`id_door`)
     REFERENCES `lockey_db`.`Door` (`id_door`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_shipping-door_contact`
+  CONSTRAINT `fk_shippingdoor_contact`
     FOREIGN KEY (`id_cont`)
     REFERENCES `lockey_db`.`Contact` (`id_cont`)
     ON DELETE NO ACTION
@@ -209,7 +209,7 @@ CREATE TABLE IF NOT EXISTS `lockey_db`.`Report` (
   `id_rpt` INT NOT NULL AUTO_INCREMENT,
   `id_usr` INT NOT NULL,
   `id_door` INT NOT NULL,
-  `trk_shpg` INT NULL,
+  `trk_shpg` VARCHAR(18) NULL,
   `tit_rpt` VARCHAR(45) NOT NULL,
   `msg_rpt` VARCHAR(256) NULL,
   PRIMARY KEY (`id_rpt`),
@@ -275,6 +275,33 @@ CREATE TABLE IF NOT EXISTS `lockey_db`.`RouteDetail` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Placeholder table for view `lockey_db`.`vUser`
+-- -----------------------------------------------------
+USE `lockey_db` ;
+CREATE TABLE IF NOT EXISTS `lockey_db`.`vUser` (`id_usr` INT, `nm_usr` INT, `em_usr` INT, `tel_usr` INT, `tk_usr` INT, `type_usr` INT);
+
+-- -----------------------------------------------------
+-- View `lockey_db`.`vUser`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `lockey_db`.`vUser`;
+USE `lockey_db`;
+CREATE OR REPLACE VIEW `vUser` AS
+    SELECT 
+        id_usr,
+        nm_usr,
+        pwd_usr,
+        em_usr,
+        tel_usr,
+        tk_usr,
+        CASE type_usr
+            WHEN 1 THEN 'ADMIN'
+            WHEN 2 THEN 'DELIVER'
+            ELSE 'CLIENT'
+        END AS type_usr
+    FROM
+        User;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
@@ -286,7 +313,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 START TRANSACTION;
 USE `lockey_db`;
 INSERT INTO `lockey_db`.`User` (`id_usr`, `nm_usr`, `em_usr`, `tel_usr`, `pwd_usr`, `type_usr`, `tk_usr`) VALUES (DEFAULT, 'Gustavo Peduzzi', 'gustavopdzz0@gmail.com', '5610338516', 'e476acd96b5d450ccad79cc6bfa1f928784e47a713c4311c307a6db0f7ad8a41', 3, NULL);
-INSERT INTO `lockey_db`.`User` (`id_usr`, `nm_usr`, `em_usr`, `tel_usr`, `pwd_usr`, `type_usr`, `tk_usr`) VALUES (DEFAULT, 'Luis Martinez', 'luis@lockeriit.com', '5566282790', '904d5a563bb1c36cd6bbcd35ffd2ffb15d167d75b56f5da68b927532cef1151f', 2, NULL);
+INSERT INTO `lockey_db`.`User` (`id_usr`, `nm_usr`, `em_usr`, `tel_usr`, `pwd_usr`, `type_usr`, `tk_usr`) VALUES (DEFAULT, 'Luis Martinez', 'luis@lockeriit.com', '5566282790', 'e476acd96b5d450ccad79cc6bfa1f928784e47a713c4311c307a6db0f7ad8a41', 2, NULL);
 
 COMMIT;
 
@@ -313,13 +340,12 @@ COMMIT;
 -- -----------------------------------------------------
 -- Data for table `lockey_db`.`Shipping`
 -- -----------------------------------------------------
--- START TRANSACTION;
--- USE `lockey_db`;
--- INSERT INTO `lockey_db`.`Shipping` (`trk_shpg`, `ownr_shpg`, `id_shpgtype`, `stat_shpg`, `dts_shpg`, `dte_shpg`, `pr_shpg`, `hgt_shpg`, `wd_shpg`, `deep_shpg`, `wt_shpg`, `id_wal`) VALUES (DEFAULT, 'Pequeño', 10.93, 40.64, 63.5, NULL);
--- INSERT INTO `lockey_db`.`Shipping` (`trk_shpg`, `ownr_shpg`, `id_shpgtype`, `stat_shpg`, `dts_shpg`, `dte_shpg`, `pr_shpg`, `hgt_shpg`, `wd_shpg`, `deep_shpg`, `wt_shpg`, `id_wal`) VALUES (DEFAULT, 'Mediano', 23.13, 40.64, 63.5, NULL);
--- INSERT INTO `lockey_db`.`Shipping` (`trk_shpg`, `ownr_shpg`, `id_shpgtype`, `stat_shpg`, `dts_shpg`, `dte_shpg`, `pr_shpg`, `hgt_shpg`, `wd_shpg`, `deep_shpg`, `wt_shpg`, `id_wal`) VALUES (DEFAULT, 'Grande', 50.8, 40.64, 63.5, NULL);
-
--- COMMIT;
+START TRANSACTION;
+USE `lockey_db`;
+INSERT INTO `lockey_db`.`Shipping` (`trk_shpg`, `id_usr`, `id_shpgtype`, `stat_shpg`, `dts_shpg`, `dte_shpg`, `pr_shpg`, `hgt_shpg`, `wd_shpg`, `deep_shpg`, `wt_shpg`, `id_wal`) VALUES ('202212150310001002', 1, 1, 1, '2022-12-15 03:10:00', NULL, 78.50, 63.5, 26.75, 12.00, 2.35, 1);
+INSERT INTO `lockey_db`.`Shipping` (`trk_shpg`, `id_usr`, `id_shpgtype`, `stat_shpg`, `dts_shpg`, `dte_shpg`, `pr_shpg`, `hgt_shpg`, `wd_shpg`, `deep_shpg`, `wt_shpg`, `id_wal`) VALUES ('202212130530002001', 2, 2, 3, '2022-12-13 05:30:00', NULL, 112.99, 14.5, 7.23, 15.23, 4.56, 1);
+INSERT INTO `lockey_db`.`Shipping` (`trk_shpg`, `id_usr`, `id_shpgtype`, `stat_shpg`, `dts_shpg`, `dte_shpg`, `pr_shpg`, `hgt_shpg`, `wd_shpg`, `deep_shpg`, `wt_shpg`, `id_wal`) VALUES ('202212140630003003', 1, 2, 4, '2022-12-14 06:25:00', NULL, 135.01, 40.64, 33.30, 63.5, 18.00, 2);
+COMMIT;
 
 -- -----------------------------------------------------
 -- Data for table `lockey_db`.`Locker`
@@ -358,9 +384,51 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lockey_db`;
-INSERT INTO `lockey_db`.`Contact` (`id_cont`, `id_usr`, `nm_cont`, `em_cont`, `tel_cont`) VALUES (DEFAULT, 1, 2, 01, 1);
-INSERT INTO `lockey_db`.`Contact` (`id_cont`, `id_usr`, `nm_cont`, `em_cont`, `tel_cont`) VALUES (DEFAULT, 1, 2, 01, 1);
-INSERT INTO `lockey_db`.`Contact` (`id_cont`, `id_usr`, `nm_cont`, `em_cont`, `tel_cont`) VALUES (DEFAULT, 1, 2, 01, 1);
+INSERT INTO `lockey_db`.`Contact` (`id_cont`, `id_usr`, `nm_cont`, `em_cont`, `tel_cont`) VALUES (DEFAULT, 1, 'Juan daniel', 'juanakolatronik@gmail.com', '5568854817');
+INSERT INTO `lockey_db`.`Contact` (`id_cont`, `id_usr`, `nm_cont`, `em_cont`, `tel_cont`) VALUES (DEFAULT, 2, 'Oscar Mosso', 'Mosscar@gmail.com', '5512468933');
+INSERT INTO `lockey_db`.`Contact` (`id_cont`, `id_usr`, `nm_cont`, `em_cont`, `tel_cont`) VALUES (DEFAULT, 1, 'Barquitos', 'Torres20@gmail.com', '5610338516');
 
 COMMIT;
 
+-- -----------------------------------------------------
+-- Data for table `lockey_db`.`ShippingDoor`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `lockey_db`;
+INSERT INTO `lockey_db`.`ShippingDoor` (`id_shpgdr`, `id_door`, `trk_shpg`, `id_cont`, `edge_shpgdr`, `busy_shpgdr`, `qr_shpgdr`) VALUES (DEFAULT, 1, '202212150310001002', 3, 1, 1, 456723);
+INSERT INTO `lockey_db`.`ShippingDoor` (`id_shpgdr`, `id_door`, `trk_shpg`, `id_cont`, `edge_shpgdr`, `busy_shpgdr`, `qr_shpgdr`) VALUES (DEFAULT, 2, '202212130530002001', 2, 1, 1, 897643);
+INSERT INTO `lockey_db`.`ShippingDoor` (`id_shpgdr`, `id_door`, `trk_shpg`, `id_cont`, `edge_shpgdr`, `busy_shpgdr`, `qr_shpgdr`) VALUES (DEFAULT, 3, '202212140630003003', 1, 1, 1, 720372);
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `lockey_db`.`Report`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `lockey_db`;
+INSERT INTO `lockey_db`.`Report` (`id_rpt`, `id_usr`, `id_door`, `trk_shpg`, `tit_rpt`, `msg_rpt`) VALUES (DEFAULT, 1, 1, '202212150310001002', 'Puerta aberiada', 'La puerta del casillero 03 del locker Santa fe esta atorada y no abre');
+INSERT INTO `lockey_db`.`Report` (`id_rpt`, `id_usr`, `id_door`, `trk_shpg`, `tit_rpt`, `msg_rpt`) VALUES (DEFAULT, 2, 2, '202212130530002001', 'Casillero Sucio', 'El casillero 01 del locker de Plaza torres esta sucio, necesita limpieza');
+INSERT INTO `lockey_db`.`Report` (`id_rpt`, `id_usr`, `id_door`, `trk_shpg`, `tit_rpt`, `msg_rpt`) VALUES (DEFAULT, 2, 3, '202212140630003003', 'Paquete abierto', 'El paquete que recibi en el locker esta abierto');
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `lockey_db`.`Route`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `lockey_db`;
+INSERT INTO `lockey_db`.`Route` (`id_rte`, `id_usr`, `date_rte`, `stat_rte`) VALUES (DEFAULT, 1, '2022-12-15 03:15:00', 1);
+INSERT INTO `lockey_db`.`Route` (`id_rte`, `id_usr`, `date_rte`, `stat_rte`) VALUES (DEFAULT, 2, '2022-12-13 05:35:24', 1);
+INSERT INTO `lockey_db`.`Route` (`id_rte`, `id_usr`, `date_rte`, `stat_rte`) VALUES (DEFAULT, 2, '2022-12-14 06:30:16', 1);
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `lockey_db`.`RouteDetail`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `lockey_db`;
+INSERT INTO `lockey_db`.`RouteDetail` (`id_rtedtl`, `id_rte`, `id_lkr`, `ord_rtedtl`) VALUES (DEFAULT, 1, 1, 1);
+INSERT INTO `lockey_db`.`RouteDetail` (`id_rtedtl`, `id_rte`, `id_lkr`, `ord_rtedtl`) VALUES (DEFAULT, 2, 2, 2);
+INSERT INTO `lockey_db`.`RouteDetail` (`id_rtedtl`, `id_rte`, `id_lkr`, `ord_rtedtl`) VALUES (DEFAULT, 3, 1, 1);
+
+COMMIT;
