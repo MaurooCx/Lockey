@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `Shipping` (
 CREATE TABLE IF NOT EXISTS `Locker` (
   `id_lkr` INT NOT NULL AUTO_INCREMENT,
   `nm_lkr` VARCHAR(45) NOT NULL,
-  `dir_lkr` VARCHAR(45) NOT NULL,
+  `dir_lkr` VARCHAR(150) NOT NULL,
   PRIMARY KEY (`id_lkr`))
 
 
