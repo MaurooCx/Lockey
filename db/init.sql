@@ -1,4 +1,12 @@
+-- -----------------------------------------------------
+-- Schema lockey_db
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `lockey_db` DEFAULT CHARACTER SET utf8 ;
+USE `lockey_db` ;
 
+-- -----------------------------------------------------
+-- Table `lockey_db`.`User`
+-- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `User` (
   `id_usr` INT NOT NULL AUTO_INCREMENT,
   `nm_usr` VARCHAR(45) NOT NULL,
