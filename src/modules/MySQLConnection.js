@@ -36,7 +36,7 @@ const db = {
 	// Roles
 	ROLES: {
 		ADMIN: 1,
-		DELIVERY: 2,
+		DELIVER: 2,
 		CLIENT: 3,
 	},
 	/**
@@ -47,7 +47,7 @@ const db = {
 	 */
 	checkCredentials: (email, password) => {
 		return new Promise((resolve, reject) => {
-			con.query('SELECT * FROM User WHERE em_usr = ? AND pwd_usr = ? LIMIT 1', [email, password], (err, results) => {
+			con.query('SELECT * FROM vUser WHERE em_usr = ? AND pwd_usr = ? LIMIT 1', [email, password], (err, results) => {
 				if (err) reject(err);
 				else resolve(results);
 			});
@@ -56,7 +56,7 @@ const db = {
 	// get all users
 	getUsers: () => {
 		return new Promise((resolve, reject) => {
-			con.query('SELECT * FROM User', (err, results) => {
+			con.query('SELECT * FROM vUser', (err, results) => {
 				if (err) reject(err);
 				else resolve(results);
 			});
@@ -65,7 +65,7 @@ const db = {
 	// get user by id
 	getUserById: (id) => {
 		return new Promise((resolve, reject) => {
-			con.query('SELECT * FROM User WHERE id_usr = ? LIMIT 1', [id], (err, results) => {
+			con.query('SELECT * FROM vUser WHERE id_usr = ? LIMIT 1', [id], (err, results) => {
 				if (err) reject(err);
 				else resolve(results);
 			});
@@ -73,7 +73,7 @@ const db = {
 	},
 	getUSerByEmail: (email) => {
 		return new Promise((resolve, reject) => {
-			con.query('SELECT * FROM User WHERE em_usr = ? LIMIT 1', [email], (err, results) => {
+			con.query('SELECT * FROM vUser WHERE em_usr = ? LIMIT 1', [email], (err, results) => {
 				if (err) reject(err);
 				else resolve(results);
 			});

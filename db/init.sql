@@ -275,6 +275,32 @@ CREATE TABLE IF NOT EXISTS `lockey_db`.`RouteDetail` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Placeholder table for view `lockey_db`.`vUser`
+-- -----------------------------------------------------
+USE `lockey_db` ;
+CREATE TABLE IF NOT EXISTS `lockey_db`.`vUser` (`id_usr` INT, `nm_usr` INT, `em_usr` INT, `tel_usr` INT, `tk_usr` INT, `type_usr` INT);
+
+-- -----------------------------------------------------
+-- View `lockey_db`.`vUser`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `lockey_db`.`vUser`;
+USE `lockey_db`;
+CREATE OR REPLACE VIEW `vUser` AS
+    SELECT 
+        id_usr,
+        nm_usr,
+        em_usr,
+        tel_usr,
+        tk_usr,
+        CASE type_usr
+            WHEN 1 THEN 'ADMIN'
+            WHEN 2 THEN 'DELIVER'
+            ELSE 'CLIENT'
+        END AS type_usr
+    FROM
+        User;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
