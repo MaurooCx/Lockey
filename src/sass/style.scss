@@ -79,6 +79,13 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 	}
 }
 
+.title{
+	margin-top: 0;
+	margin-left: 20px;
+	margin-right: 0;
+	margin-bottom: 20PX;
+}
+
 .bg-cover1 {
 	position: relative;
 	z-index: 1;

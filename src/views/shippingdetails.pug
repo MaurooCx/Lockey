@@ -2,25 +2,36 @@ extends layout
 
 block content
     .bg-primary
-        p.m-5.h1 Rastrear envio
+        p.h1.title Rastrear envio
     div(style='margin-left:10px')
     .process
         ul.StepProgress
             .StepProgress-item.is-done
                 strong En espera de entrega
+                |   Fecha: 00/00/0000
+                br   
+                |   Hora:  00:00
             .StepProgress-item.is-done
                 strong En espera de recolección
-                |     Got more entries that you love? Buy more entries anytime! Just hover on your favorite entry and click the Buy button
+                |   Fecha: 00/00/0000
+                br   
+                |   Hora:  00:00
             .StepProgress-item.is-done
                 strong En tránsito
+                |   Fecha: 00/00/0000
+                br   
+                |   Hora:  00:00
             .StepProgress-item.is-done
                 strong En espera de recepción
+                |   Fecha: 00/00/0000
+                br   
+                |   Hora:  00:00
             .StepProgress-item.current
                 strong Completado
             .StepProgress-item.current
-                strong Cancelado
-            .StepProgress-item.current
                 strong Almacén
+            .StepProgress-item.current
+                strong Cancelado
 
 
 
