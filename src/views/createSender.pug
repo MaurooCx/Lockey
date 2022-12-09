@@ -1,0 +1,33 @@
+extends layout
+
+block content
+    .container-fluid
+        h6.container.text-center.fs-4 Datos del remitente
+        .row.col-fluid-12.rounded-4
+            form.col-12.rounded.px-3.mb-3.needs-validation(novalidate='')
+            div
+                label.form-label.mb-1.px-1.mt-3.fw-bold(for='NombreDestinatario') Nombre del remitente
+                input#NombreDestinatario.form-control.rounded-4(type='text' placeholder='Juan Daniel...' required='')
+                .valid-feedback
+                | Ok!
+                .invalid-feedback
+                | Es necesario poner el nombre
+            label.form-label.mb-1.px-1.mt-3.fw-bold(for='Correo') Correo
+            input#Correo.form-control.rounded-4(type='text' placeholder='Ingrese un correo' required='')
+            .valid-feedback
+                | Ok!
+            .invalid-feedback
+                | Es necesario un correo
+            label.form-label.mb-1.px-1.mt-3.fw-bold(for='Numtelefono') Telefono
+            input#Numtelefono.form-control.rounded-4(type='number' placeholder='Ingrese un numero' required='')
+            .valid-feedback
+                | Ok!
+            .invalid-feedback
+                | Es necesario un numero telefonico
+            .d-grid.gap-4
+                .row.col-fluid.mt-1.mx-1
+                button.btn.btn-primary.btn-lg.rounded-5.mt-3(type='submit' style='background-color: #F9D950;' data-bs-toggle='modal')
+                    .fw-bold(style='color:#212E46') Continuar
+
+    block scripts
+        script(src='/javascripts/validation.js')
