@@ -109,6 +109,28 @@ const db = {
 						else resolve(results);
 					});
 				}
+			}).catch((err) => {
+				reject(err);
+			});
+		});
+	},
+			
+	// Obtener todos los registros de la tabla Shipping
+	getShipping: () => {
+		return new Promise((resolve, reject) => {
+			con.query('SELECT * FROM Shipping', (err, results) => {
+				if (err) reject(err);
+				else resolve(results);
+			});
+		});
+	},
+
+	// Obtener registros de shipping por estado del envio
+	getShpgByStat: (stat) => {
+		return new Promise((resolve, reject) => {
+			con.query('SELECT * FROM Shipping WHERE stat_shpg = ? LIMIT 7', [stat], (err, results) => {
+				if (err) reject(err);
+				else resolve(results);
 			});
 		});
 	}

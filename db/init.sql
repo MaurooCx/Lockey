@@ -19,7 +19,7 @@ USE `lockey_db` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `lockey_db`.`User` (
   `id_usr` INT NOT NULL AUTO_INCREMENT,
-  `act_usr` INT(1) NOT NULL AUTO_INCREMENT DEFAULT 0,
+  `act_usr` INT NOT NULL DEFAULT 0,
   `nm_usr` VARCHAR(45) NOT NULL,
   `em_usr` VARCHAR(45) NOT NULL,
   `tel_usr` VARCHAR(10) NOT NULL,
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `lockey_db`.`Shipping` (
   `stat_shpg` INT NOT NULL,
   `dts_shpg` DATETIME NOT NULL DEFAULT NOW(),
   `dte_shpg` DATETIME NULL,
-  `dtU _shpg` DATETIME NULL,
+  `dtu_shpg` DATETIME NULL,
   `pr_shpg` DOUBLE NOT NULL,
   `hgt_shpg` DOUBLE NOT NULL,
   `wd_shpg` DOUBLE NOT NULL,
@@ -294,7 +294,7 @@ CREATE OR REPLACE VIEW `vUser` AS
         CASE act_usr
             WHEN 1 THEN 'ENABLED'
             ELSE 'DISABLED'
-        END AS act_usr
+        END AS act_usr,
         nm_usr,
         pwd_usr,
         em_usr,
@@ -318,8 +318,8 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lockey_db`;
-INSERT INTO `lockey_db`.`User` (`id_usr`, `nm_usr`, `em_usr`, `tel_usr`, `pwd_usr`, `type_usr`, `tk_usr`) VALUES (DEFAULT, 'Gustavo Peduzzi', 'gustavopdzz0@gmail.com', '5610338516', 'e476acd96b5d450ccad79cc6bfa1f928784e47a713c4311c307a6db0f7ad8a41', 3, NULL);
-INSERT INTO `lockey_db`.`User` (`id_usr`, `nm_usr`, `em_usr`, `tel_usr`, `pwd_usr`, `type_usr`, `tk_usr`) VALUES (DEFAULT, 'Luis Martinez', 'luis@lockeriit.com', '5566282790', 'e476acd96b5d450ccad79cc6bfa1f928784e47a713c4311c307a6db0f7ad8a41', 2, NULL);
+INSERT INTO `lockey_db`.`User` (`id_usr`, `act_usr`, `nm_usr`, `em_usr`, `tel_usr`, `pwd_usr`, `type_usr`, `tk_usr`) VALUES (DEFAULT, 1, 'Gustavo Peduzzi', 'gustavopdzz0@gmail.com', '5610338516', 'e476acd96b5d450ccad79cc6bfa1f928784e47a713c4311c307a6db0f7ad8a41', 3, NULL);
+INSERT INTO `lockey_db`.`User` (`id_usr`, `act_usr`, `nm_usr`, `em_usr`, `tel_usr`, `pwd_usr`, `type_usr`, `tk_usr`) VALUES (DEFAULT, 1, 'Luis Martinez', 'luis@lockeriit.com', '5566282790', 'e476acd96b5d450ccad79cc6bfa1f928784e47a713c4311c307a6db0f7ad8a41', 2, NULL);
 
 COMMIT;
 
@@ -348,9 +348,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lockey_db`;
-INSERT INTO `lockey_db`.`Shipping` (`trk_shpg`, `id_usr`, `id_shpgtype`, `stat_shpg`, `dts_shpg`, `dte_shpg`, `pr_shpg`, `hgt_shpg`, `wd_shpg`, `deep_shpg`, `wt_shpg`, `id_wal`) VALUES ('202212150310001002', 1, 1, 1, '2022-12-15 03:10:00', NULL, 78.50, 63.5, 26.75, 12.00, 2.35, 1);
-INSERT INTO `lockey_db`.`Shipping` (`trk_shpg`, `id_usr`, `id_shpgtype`, `stat_shpg`, `dts_shpg`, `dte_shpg`, `pr_shpg`, `hgt_shpg`, `wd_shpg`, `deep_shpg`, `wt_shpg`, `id_wal`) VALUES ('202212130530002001', 2, 2, 3, '2022-12-13 05:30:00', NULL, 112.99, 14.5, 7.23, 15.23, 4.56, 1);
-INSERT INTO `lockey_db`.`Shipping` (`trk_shpg`, `id_usr`, `id_shpgtype`, `stat_shpg`, `dts_shpg`, `dte_shpg`, `pr_shpg`, `hgt_shpg`, `wd_shpg`, `deep_shpg`, `wt_shpg`, `id_wal`) VALUES ('202212140630003003', 1, 2, 4, '2022-12-14 06:25:00', NULL, 135.01, 40.64, 33.30, 63.5, 18.00, 2);
+INSERT INTO `lockey_db`.`Shipping` (`trk_shpg`, `id_usr`, `id_shpgtype`, `stat_shpg`, `dts_shpg`, `dtu_shpg`, `dte_shpg`, `pr_shpg`, `hgt_shpg`, `wd_shpg`, `deep_shpg`, `wt_shpg`, `id_wal`) VALUES ('202212150310001002', 1, 1, 1, '2022-12-15 03:10:00', '2022-12-15 03:10:00', NULL, 78.50, 63.5, 26.75, 12.00, 2.35, 1);
+INSERT INTO `lockey_db`.`Shipping` (`trk_shpg`, `id_usr`, `id_shpgtype`, `stat_shpg`, `dts_shpg`, `dtu_shpg`, `dte_shpg`, `pr_shpg`, `hgt_shpg`, `wd_shpg`, `deep_shpg`, `wt_shpg`, `id_wal`) VALUES ('202212130530002001', 2, 2, 3, '2022-12-13 05:30:00', '2022-12-13 05:30:00', NULL, 112.99, 14.5, 7.23, 15.23, 4.56, 1);
+INSERT INTO `lockey_db`.`Shipping` (`trk_shpg`, `id_usr`, `id_shpgtype`, `stat_shpg`, `dts_shpg`, `dtu_shpg`, `dte_shpg`, `pr_shpg`, `hgt_shpg`, `wd_shpg`, `deep_shpg`, `wt_shpg`, `id_wal`) VALUES ('202212140630003003', 1, 2, 4, '2022-12-14 06:25:00', '2022-12-14 06:25:00', NULL, 135.01, 40.64, 33.30, 63.5, 18.00, 2);
 COMMIT;
 
 -- -----------------------------------------------------
