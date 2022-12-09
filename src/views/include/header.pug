@@ -1,6 +1,6 @@
 header.container.d-flex.flex-wrap.align-items-center.justify-content-center.justify-content-md-between.py-3.mb-0.border-bottom
 	include logo
-	ul.nav.col-12.col-md-auto.mb-2.mb-md-0.justify-content-center
+	//- ul.nav.col-12.col-md-auto.mb-2.mb-md-0.justify-content-center
 		li
 			a.nav-link.px-2.link-secondary(href='#') Home
 		li
@@ -9,13 +9,10 @@ header.container.d-flex.flex-wrap.align-items-center.justify-content-center.just
 			a.nav-link.px-2.link-dark(href='#') Pricing
 		li
 			a.nav-link.px-2.link-dark(href='#') FAQs
-		li
+		//- li
 			a.nav-link.px-2.link-dark(href='#')= path
 	.col-md-3.text-end
-		if path!='/'
-			button.btn.btn-outline-primary.me-2(type='button') Login
-			button.btn.btn-primary(type='button') Sign-up
-		else if user
+		if user
 			.flex-shrink-0.dropdown
 				a.d-block.link-dark.text-decoration-none.dropdown-toggle(href='#' data-bs-toggle='dropdown' aria-expanded='false')
 					img.rounded-circle(src='https://dreamvilla.life/wp-content/uploads/2017/07/dummy-profile-pic.png' alt='usuario' width='32' height='32')
@@ -34,3 +31,6 @@ header.container.d-flex.flex-wrap.align-items-center.justify-content-center.just
 						hr.dropdown-divider
 					li
 						a.dropdown-item(href='/panel/cerrarsesion') Cerrar sesión
+		else if path!='/'
+			button.btn.btn-outline-primary.me-2(type='button') Login
+			button.btn.btn-primary(type='button') Sign-up
