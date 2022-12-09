@@ -22,9 +22,14 @@ router.get('/cerrarsesion', (req, res, next) => {
 	}
 });
 router.get('/envio');//envios historicos (esto de momento no)
-router.get('/envio/detalles', (req,res,next) =>{
-	//detalles de los envios
-	 
+
+router.get('/envio/detalles/[0-9]{18}', (req,res,next) =>{
+	res.render("shippingdetails") 
+	if (req.session.user) {
+		res.render('shippingdetails' , { title: 'sendiit - panel', path: req.path, user: req.session.user });
+	} else {
+		res.redirect('/');
+	}
 });
 
 module.exports = router;

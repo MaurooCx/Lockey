@@ -1,14 +1,52 @@
 extends layout
 
 block content
-	if user.type == 'ADMIN'
-		| Admin Dashboard
-	else if user.type == 'DELIVER'
-		| Deliver Dashboard
-	else if user.type == 'CLIENT'
-		| Client Dashboard
-	else
-		| Usuario desconocido
+	.bg-primary
+		if user.type == 'ADMIN'
+			| Admin Dashboard
+		else if user.type == 'DELIVER'
+			| Deliver Dashboard
+		else if user.type == 'CLIENT'
+			| Client Dashboard
+		else
+			| Usuario desconocido
+
+	.wrapper 
+		-
+			let datos = [
+				{
+				'stat_shpg': 'EN TRÁNSITO',
+				'trk_shpg': '121212121212121212'
+				},
+				{'stat_shpg': 'EN TRÁNSITO',
+				'trk_shpg': '121212121212121212'
+				},
+				{'stat_shpg': 'EN TRÁNSITO',
+				'trk_shpg': '121212121212121212'
+				},
+				{'stat_shpg': 'EN TRÁNSITO',
+				'trk_shpg': '121212121212121212'
+				},
+				{'stat_shpg': 'EN TRÁNSITO',
+				'trk_shpg': '121212121212121212'
+				},
+			]
+
+		each val in datos
+			a.text-decoration-none(href='/panel/envio/detalles/'+val.trk_shpg)
+				.item.row.d-flex.align-items-center.justify-content-center
+					.col-4.p-0
+						img.img-fluid.rounded-start(src='https://img.freepik.com/vector-premium/icono-vector-arte-linea-camion-entrega-envio-rapido-aplicaciones-sitios-web-transporte_652240-16.jpg')
+					.col-8.p-0
+						p.card-text.text-center.m-0.text-status= val.stat_shpg
+						h5.card-title.card-text.text-center.text-secondary= val.trk_shpg
+						small.text-muted Origen: 
+						br
+						small.text-muted Destino 
+						br
+						small.text-muted Ultima actualización:
+						br
+						small.text-muted 00:00 PM - 00/00/0000		 
 
 block scripts
 	script const user = !{JSON.stringify(user)}
