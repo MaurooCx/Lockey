@@ -128,12 +128,33 @@ const db = {
 	// Obtener registros de shipping por estado del envio
 	getShpgByStat: (stat) => {
 		return new Promise((resolve, reject) => {
-			con.query('SELECT * FROM Shipping WHERE stat_shpg = ? LIMIT 7', [stat], (err, results) => {
+			con.query('SELECT * FROM Shipping WHERE stat_shpg = ?', [stat], (err, results) => {
 				if (err) reject(err);
 				else resolve(results);
 			});
 		});
-	}
+	},
+
+	getresumshipping: (trk_shpg,edge_shpgdr,stat_shpg) => {
+		return new Promise((resolve, reject) => {
+			con.query('SELECT trk_shpg, nm_lkr, date_rte, dtu_shpg FROM Shipping NATURAL JOIN User NATURAL JOIN ShippingDoor NATURAL JOIN Door NATURAL JOIN Locker NATURAL JOIN Route WHERE trk_shpg= ?', [stat], 'AND edge_shpgdr= ?', [stat], 'AND stat_shpg= ?', [stat], (err, results) => {
+				if (err) reject(err);
+				else resolve(results);
+			});
+		});
+	},
+
+	getdetailsshipping: (trk_shpg) => {
+		return new Promise((resolve, reject) => {
+			con.query('SELECT trk_shpg, nm_usr, nm_cont, nm_shpgtype, date_rte, hgt_shpg, wd_shpg, deep_shpg, wt_shpg, pr_shpg, num_wal FROM Shipping NATURAL JOIN User NATURAL JOIN ShippingDoor NATURAL JOIN Contact NATURAL JOIN ShippingType NATURAL JOIN Wallet WHERE trk_shpg= ?', [stat], (err, results) => {
+				if (err) reject(err);
+				else resolve(results);
+			});
+		});
+	},
+
+
+
 };
 
 

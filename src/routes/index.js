@@ -23,19 +23,35 @@ router.route('/identificacion')
 		db.checkCredentials(email, password).then((results) => {
 			debug('results', results);
 			if (results.length) {
-				req.session.user = {
-					name: results[0].nm_usr,
-					email: results[0].em_usr,
-					type: results[0].type_usr,
-					isActive: results[0].act_usr
-				};
-				debug('/identificacion session.user:', req.session.user);
-				
-				res.status(200).json({
-					response: 'OK',
-					message: 'Usuario autenticado',
-					redirect: '/'
-				});
+				if(results[0].act_usr == 'ENABLED'){
+					req.session.user = {
+						name: results[0].nm_usr,
+						email: results[0].em_usr,
+						type: results[0].type_usr,
+						isActive: results[0].act_usr
+					};
+					debug('/identificacion session.user:', req.session.user);
+					
+					res.status(200).json({
+						response: 'OK',
+						message: 'Usuario autenticado',
+						redirect: '/'
+					});
+				}
+				else{
+					req.session.tmpemail = email;
+					res.status(200).json({
+						response: 'OK',
+						message: 'Usuario creado correctamente',
+						modal:{
+							old:'#signinModal',
+							new: '#mailverificationModal',
+						},
+					
+					});
+					console.log('fernando')
+				}
+
 			} else {
 				res.status(401).json({response:'ERROR', message:'Correo o contraseña incorrectos'});
 			}
@@ -57,12 +73,7 @@ router.route('/registro')
 				db.getUserById(results.insertId).then((results) => {
 					
 					if (results.length > 0) {
-						req.session.user = {
-							name: results[0].nm_usr,
-							email: results[0].em_usr,
-							type: results[0].type_usr,
-							isActive: results[0].act_usr
-						};
+
 						
 						mailer.mailVerification(email, token);
 
