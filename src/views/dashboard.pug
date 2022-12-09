@@ -1,14 +1,15 @@
 extends layout
 
 block content
-	if user.type == 'ADMIN'
-		| Admin Dashboard
-	else if user.type == 'DELIVER'
-		| Deliver Dashboard
-	else if user.type == 'CLIENT'
-		| Client Dashboard
-	else
-		| Usuario desconocido
+	.bg-primary
+		if user.type == 'ADMIN'
+			| Admin Dashboard
+		else if user.type == 'DELIVER'
+			| Deliver Dashboard
+		else if user.type == 'CLIENT'
+			| Client Dashboard
+		else
+			| Usuario desconocido
 
 	.wrapper 
 		-
@@ -47,6 +48,9 @@ block content
 						br
 						small.text-muted 00:00 PM - 00/00/0000		 
 
+block scripts
+	script const user = !{JSON.stringify(user)}
+	script(src='/javascripts/validation.js')
 block scripts
 	script const user = !{JSON.stringify(user)}
 	script(src='/javascripts/validation.js')
