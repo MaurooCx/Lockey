@@ -424,7 +424,7 @@ START TRANSACTION;
 USE `lockey_db`;
 INSERT INTO `lockey_db`.`Route` (`id_rte`, `id_usr`, `date_rte`, `stat_rte`) VALUES (DEFAULT, 1, '2022-12-15 03:15:00', 1);
 INSERT INTO `lockey_db`.`Route` (`id_rte`, `id_usr`, `date_rte`, `stat_rte`) VALUES (DEFAULT, 2, '2022-12-13 05:35:24', 1);
-INSERT INTO `lockey_db`.`Route` (`id_rte`, `id_usr`, `date_rte`, `stat_rte`) VALUES (DEFAULT, 2, '2022-12-14 06:30:16', 1);
+INSERT INTO `lockey_db`.`Route` (`id_rte`, `id_usr`, `date_rte`, `stat_rte`) VALUES (DEFAULT, 2, NOW(), 1);
 
 COMMIT;
 
