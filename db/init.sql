@@ -304,7 +304,7 @@ CREATE OR REPLACE VIEW `vUser` AS
             WHEN 2 THEN 'DELIVER'
             ELSE 'CLIENT'
         END AS type_usr,
-        tk_usr,
+        tk_usr
     FROM
         User;
 
