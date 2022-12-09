@@ -83,7 +83,7 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 	margin-top: 0;
 	margin-left: 20px;
 	margin-right: 0;
-	margin-bottom: 20PX;
+	font-weight: bolder;
 }
 
 .bg-cover1 {
@@ -139,11 +139,12 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
   
 .process {
 	font-size: 24px;
+	margin-top: 2rem;
 }
   
 .StepProgress {
 	position: relative;
-	padding-left: 45px;
+	padding-left: 50px;
 	list-style: none;
 	
 	&::before {
@@ -152,9 +153,8 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 	  position: absolute;
 	  top: 0;
 	  left: 15px;
-	  width: 10px;
+	  width: 0px;
 	  height: 100%;
-	  border-left: 2px solid #CCC;
 	}
 	
 	&-item {
@@ -162,14 +162,14 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 	  counter-increment: list;
 	  
 	  &:not(:last-child) {
-		padding-bottom: 50px;
+		padding-bottom: 40px;
 	  }
 	  
 	  &::before {
 		display: inline-block;
 		content: '';
 		position: absolute;
-		left: -30px;
+		left: -20px;
 		height: 100%;
 		width: 10px;
 	  }
@@ -182,9 +182,8 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 		left: -37px;
 		width: 12px;
 		height: 12px;
-		border: 2px solid #CCC;
 		border-radius: 50%;
-		background-color: #FFF;
+		// background-color: #FFF;
 	  }
 	  
 	  &.is-done {
@@ -192,7 +191,7 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 		  border-left: 10px solid $primary;
 		}
 		&::after {
-		  content: "✔";
+		//   content: "✔";
 		  font-size: 20px;
 		  color: #FFF;
 		  text-align: center;
@@ -207,7 +206,7 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 		}
 		
 		&::after {
-		  content: counter(list);
+		//   content: counter(list);
 		  padding-top: 1px;
 		  width: 19px;
 		  height: 18px;
@@ -215,11 +214,25 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 		  left: -40px;
 		  font-size: 14px;
 		  text-align: center;
-		  color: rgb(255, 255, 255);
-		  border: 2px solid rgb(182, 182, 182);
+		  border: 20px solid rgb(182, 182, 182);
 		  background-color: white;
 		}
 	  }
 	}
-	strong {display: block;}
+	strong {display: block; padding-left: 20px;}
+	p {display: block; padding-left: 20px; margin: 0;}
   }
+
+.detalles{
+	padding-left: 2rem;
+	font-weight: bolder;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.trayect{
+	padding-left: 2rem;
+	font-weight: bolder;
+	background-color: #212e46;
+	color: white;
+}
