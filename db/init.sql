@@ -310,6 +310,22 @@ CREATE OR REPLACE VIEW `vUser` AS
     FROM
         User;
 
+-- -----------------------------------------------------
+-- View `lockey_db`.`ShippingDetail`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `lockey_db`.`ShippingDetail`;
+USE `lockey_db`;
+CREATE OR REPLACE VIEW `ShippingDetail` AS
+    SELECT     Shipping.*, nm_wal, num_wal, OriginContact.nm_cont as nm_contorg, Origin.qr_shpgdr as qr_org, OriginDoor.nm_door as nm_drorg, OriginLocker.nm_lkr as nm_lkrorg, DestinationContact.nm_cont as nm_contdst, Destination.qr_shpgdr as qr_dst, DestinationDoor.nm_door as nm_drdst, DestinationLocker.nm_lkr as nm_lkrdst
+		FROM       Shipping
+		NATURAL JOIN Wallet
+		RIGHT JOIN (ShippingDoor AS Origin, Door as OriginDoor, Locker as OriginLocker, Contact as OriginContact)
+				ON (Shipping.trk_shpg = Origin.trk_shpg AND OriginDoor.id_door = Origin.id_door AND OriginLocker.id_lkr = OriginDoor.id_lkr AND OriginContact.id_cont = Origin.id_cont)
+		RIGHT JOIN (ShippingDoor AS Destination, Door as DestinationDoor, Locker as DestinationLocker, Contact as DestinationContact)
+				ON (Shipping.trk_shpg = Destination.trk_shpg AND DestinationDoor.id_door = Destination.id_door AND DestinationLocker.id_lkr = DestinationDoor.id_lkr AND DestinationContact.id_cont = Destination.id_cont)
+		WHERE      Origin.trk_shpg = Destination.trk_shpg
+				AND Origin.edge_shpgdr=1 AND Destination.edge_shpgdr=2;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
