@@ -1,42 +1,43 @@
 extends layout
 
 block content
-    .bg-primary.d-flex.align-items-center(style="height: 80px;")
-        p.h1.title Detalles de envio
+    div.space
+        .bg-primary.d-flex.align-items-center(style="height: 70px;")
+            p.h1.title Detalles de envio
 
-    div.detalles
-        p Número de guía: 
-        p Remitente:
-        p Destinatario:
-        p Lugar de origen:
-        p Lugar de destino:
-        p Tipo de envío:
-        p Fecha de creación: 
-        p Altura del paquete:
-        p Ancho del paquete:
-        p Profundidad del paquete:
-        p Peso del paquete:
-        p Precio:
-        p Metodo de pago:
+        div.detalles
+            p Número de guía: 
+            p Remitente:
+            p Destinatario:
+            p Lugar de origen:
+            p Lugar de destino:
+            p Tipo de envío:
+            p Fecha de creación: 
+            p Altura del paquete:
+            p Ancho del paquete:
+            p Profundidad del paquete:
+            p Peso del paquete:
+            p Precio:
+            p Metodo de pago:
 
-    .bg-secondary.d-flex.align-items-center(style="height: 50px;")
-        p.h2.trayect Trayectoria
+        .bg-secondary.d-flex.align-items-center(style="height: 50px;")
+            p.h2.trayect Trayectoria
 
-    .process
-        ul.StepProgress
-            .StepProgress-item.is-done
-                strong En espera de entrega
-            .StepProgress-item.is-done
-                strong En espera de recolección
-            .StepProgress-item.is-done
-                strong En tránsito
-            .StepProgress-item.is-done
-                strong En espera de recepción
-                p Fecha: 00/00/0000   
-                p Hora:  00:00
-            .StepProgress-item.current
-                strong Completado
-            .StepProgress-item.current
-                strong Almacén
-            .StepProgress-item.current
-                strong Cancelado
+        .process
+            ul.StepProgress
+                .StepProgress-item.is-done
+                    strong En espera de entrega
+                .StepProgress-item.is-done
+                    strong En espera de recolección
+                .StepProgress-item.is-done
+                    strong En tránsito
+                .StepProgress-item.is-done
+                    strong En espera de recepción
+                    p Fecha: 00/00/0000   
+                    p Hora:  00:00
+                .StepProgress-item.current
+                    strong Completado
+                .StepProgress-item.current
+                    strong Almacén
+                .StepProgress-item.current
+                    strong Cancelado

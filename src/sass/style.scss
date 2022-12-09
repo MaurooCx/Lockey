@@ -79,6 +79,11 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 	}
 }
 
+.space{
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
 .title{
 	margin-top: 0;
 	margin-left: 20px;
@@ -224,7 +229,7 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
   }
 
 .detalles{
-	padding-left: 2rem;
+	padding-left: 1rem;
 	font-weight: bolder;
 	margin-top: 1rem;
 	margin-bottom: 1rem;
