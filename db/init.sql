@@ -299,12 +299,12 @@ CREATE OR REPLACE VIEW `vUser` AS
         pwd_usr,
         em_usr,
         tel_usr,
-        tk_usr,
         CASE type_usr
             WHEN 1 THEN 'ADMIN'
             WHEN 2 THEN 'DELIVER'
             ELSE 'CLIENT'
-        END AS type_usr
+        END AS type_usr,
+        tk_usr,
     FROM
         User;
 
