@@ -123,6 +123,7 @@ function validatePassword(form) {
 						}
 					else {
 						console.log(data.message);
+						form.classList.remove('was-validated');
 						toast(data.message, TOAST_TYPES.DANGER);
 					}
 					
