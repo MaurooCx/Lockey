@@ -24,9 +24,20 @@ router.get('/cerrarsesion', (req, res, next) => {
 router.get('/envio');//envios historicos (esto de momento no)
 
 router.get('/envio/detalles/[0-9]{18}', (req,res,next) =>{
-	res.render("shippingdetails") 
+	// res.render("shippingdetails") 
 	if (req.session.user) {
-		res.render('shippingdetails' , { title: 'sendiit - panel', path: req.path, user: req.session.user });
+		let traking=req.path.match(/\d{18}/)[0]
+		console.log (traking)
+		db.getshippingdetails(traking).then((results)=>{
+			debug('results', results);
+			if (results.length) {
+				res.render('shippingdetails' , { title: 'sendiit - panel', path: req.path, user: req.session.user, shipping:results[0]});
+			}
+			else {
+				res.status(401).json({response:'ERROR', message:'Envío no encontrado'});
+			}
+		});
+	
 	} else {
 		res.redirect('/');
 	}

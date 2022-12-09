@@ -6,19 +6,19 @@ block content
             p.h1.title Detalles de envio
 
         div.detalles
-            p Número de guía: 
-            p Remitente:
-            p Destinatario:
-            p Lugar de origen:
-            p Lugar de destino:
-            p Tipo de envío:
-            p Fecha de creación: 
-            p Altura del paquete:
-            p Ancho del paquete:
-            p Profundidad del paquete:
-            p Peso del paquete:
-            p Precio:
-            p Metodo de pago:
+            p Número de guía: #{shipping.trk_shpg}
+            p Remitente: #{shipping.nm_contorg}
+            p Destinatario: #{shipping.nm_contdst}
+            p Lugar de origen: #{shipping.nm_lkrorg}
+            p Lugar de destino: #{shipping.nm_lkrdst}
+            p Tipo de envío: #{shipping.id_shpgtype}
+            p Fecha de creación: #{shipping.dts_shpg}
+            p Altura del paquete: #{shipping.hgt_shpg}
+            p Ancho del paquete: #{shipping.wd_shpg}
+            p Profundidad del paquete: #{shipping.deep_shpg}
+            p Peso del paquete: #{shipping.wt_shpg}
+            p Precio: #{shipping.pr_shpg}
+            p Metodo de pago: #{shipping.num_wal}
 
         .bg-secondary.d-flex.align-items-center(style="height: 50px;")
             p.h2.trayect Trayectoria

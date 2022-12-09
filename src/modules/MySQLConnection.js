@@ -144,9 +144,9 @@ const db = {
 		});
 	},
 
-	getdetailsshipping: (trk_shpg) => {
+	getshippingdetails: (trk_shpg) => {
 		return new Promise((resolve, reject) => {
-			con.query('SELECT trk_shpg, nm_usr, nm_cont, nm_shpgtype, date_rte, hgt_shpg, wd_shpg, deep_shpg, wt_shpg, pr_shpg, num_wal FROM Shipping NATURAL JOIN User NATURAL JOIN ShippingDoor NATURAL JOIN Contact NATURAL JOIN ShippingType NATURAL JOIN Wallet WHERE trk_shpg= ?', [stat], (err, results) => {
+			con.query('SELECT * FROM ShippingDetail  WHERE trk_shpg= ?', [trk_shpg], (err, results) => {
 				if (err) reject(err);
 				else resolve(results);
 			});
