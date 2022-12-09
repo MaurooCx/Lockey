@@ -83,7 +83,9 @@ const db = {
 	// create new user with validation
 	createUser: (name, email, tel, password, token, type) => {
 		return new Promise((resolve, reject) => {
+			
 			// check if email is already in use
+			
 			db.getUSerByEmail(email).then((results) => {
 				if (results.length > 0) reject('Correo ya en uso');
 				else {
@@ -104,13 +106,11 @@ const db = {
 			con.query('SELECT * FROM vUser WHERE em_usr = ? AND tk_usr = ? LIMIT 1', [email,token], (err, results) => {
 				if (err) reject(err);
 				else {
-					con.query('UPDATE User SET act_usr=1 , tk_usr=NULL WHERE em_usr = ?', [email], (err, results) => {
+					resolve(results);
+					con.query('UPDATE User SET act_usr=1, tk_usr=NULL WHERE em_usr = ? AND tk_usr = ? ', [email,token], (err) => {
 						if (err) reject(err);
-						else resolve(results);
 					});
 				}
-			}).catch((err) => {
-				reject(err);
 			});
 		});
 	},
