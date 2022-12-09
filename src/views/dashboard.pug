@@ -1,15 +1,14 @@
 extends layout
 
 block content
-	.bg-primary
-		if user.type == 'ADMIN'
-			| Admin Dashboard
-		else if user.type == 'DELIVER'
-			| Deliver Dashboard
-		else if user.type == 'CLIENT'
-			| Client Dashboard
-		else
-			| Usuario desconocido
+	if user.type == 'ADMIN'
+		| Admin Dashboard
+	else if user.type == 'DELIVER'
+		| Deliver Dashboard
+	else if user.type == 'CLIENT'
+		| Client Dashboard
+	else
+		| Usuario desconocido
 
 	.wrapper 
 		-
