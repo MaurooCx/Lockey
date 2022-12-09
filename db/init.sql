@@ -68,7 +68,6 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `lockey_db`.`Shipping` (
   `trk_shpg` VARCHAR(18) NOT NULL,
   `id_usr` INT NOT NULL,
-  `id_cont` INT NOT NULL,
   `id_shpgtype` INT NOT NULL,
   `stat_shpg` INT NOT NULL,
   `dts_shpg` DATETIME NOT NULL DEFAULT NOW(),
@@ -83,7 +82,6 @@ CREATE TABLE IF NOT EXISTS `lockey_db`.`Shipping` (
   PRIMARY KEY (`trk_shpg`),
   UNIQUE INDEX `trk_shpg_UNIQUE` (`trk_shpg` ASC) VISIBLE,
   INDEX `fk_shipping_user_idx` (`id_usr` ASC) VISIBLE,
-  INDEX `fk_shipping_contact_idx` (`id_cont` ASC) VISIBLE,
   INDEX `fk_shipping_wallet_idx` (`id_wal` ASC) VISIBLE,
   INDEX `fk_shipping)shippingtype_idx` (`id_shpgtype` ASC) VISIBLE,
   CONSTRAINT `fk_shipping_user`
