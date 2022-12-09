@@ -17,12 +17,13 @@
 	  // Only needed if you don't have a real mail account for testing
 	  let testAccount = await nodemailer.createTestAccount();
 	  var b = num.toString();
-	
+		console.log(b);
+		console.log(email);
 	  // create reusable transporter object using the default SMTP transport
 	  let transporter = nodemailer.createTransport({
 		host: "smtp.gmail.com",
-		port: 465,
-		secure: true, // true for 465, false for other ports
+		port: 587,
+		secure:false, // true for 465, false for other ports
 		auth: {
 		  user: "lockeysendiit@gmail.com", // generated ethereal user
 		  pass: "uryvmcthzjrbeung", // generated ethereal password
@@ -31,11 +32,11 @@
 	
 	  // send mail with defined transport object
 	  let info = await transporter.sendMail({
-		from: '"Fred Foo 👻" ', // sender address
+		from: '"Sendiit-Envios" ', // sender address
 		to: email, // list of receivers
-		subject: "Hello ✔", // Subject line
+		subject: "Codigo de verificacion", // Subject line
 		text: b , // plain text body
-		html: "<b>" + b +" </b>"});
+		html: "<b>Tu Codigo de verificacion es :" + b +" </b>"});
 	
 	  console.log("Message sent: %S", info.messageId);
 	  // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
