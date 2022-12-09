@@ -316,7 +316,8 @@ USE `lockey_db`;
 CREATE OR REPLACE VIEW `ShippingDetail` AS
     SELECT     Shipping.*, nm_shpgtype, nm_wal, num_wal, OriginContact.nm_cont as nm_contorg, Origin.qr_shpgdr as qr_org, OriginDoor.nm_door as nm_drorg, OriginLocker.nm_lkr as nm_lkrorg, DestinationContact.nm_cont as nm_contdst, Destination.qr_shpgdr as qr_dst, DestinationDoor.nm_door as nm_drdst, DestinationLocker.nm_lkr as nm_lkrdst
 		FROM       Shipping
-		NATURAL JOIN Wallet, ShippingType
+		NATURAL JOIN Wallet
+		NATURAL JOIN ShippingType
 		RIGHT JOIN (ShippingDoor AS Origin, Door as OriginDoor, Locker as OriginLocker, Contact as OriginContact)
 				ON (Shipping.trk_shpg = Origin.trk_shpg AND OriginDoor.id_door = Origin.id_door AND OriginLocker.id_lkr = OriginDoor.id_lkr AND OriginContact.id_cont = Origin.id_cont)
 		RIGHT JOIN (ShippingDoor AS Destination, Door as DestinationDoor, Locker as DestinationLocker, Contact as DestinationContact)
