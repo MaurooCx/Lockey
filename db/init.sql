@@ -19,11 +19,12 @@ USE `lockey_db` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `lockey_db`.`User` (
   `id_usr` INT NOT NULL AUTO_INCREMENT,
+  `act_usr` INT(1) NOT NULL AUTO_INCREMENT DEFAULT 0,
   `nm_usr` VARCHAR(45) NOT NULL,
   `em_usr` VARCHAR(45) NOT NULL,
   `tel_usr` VARCHAR(10) NOT NULL,
   `pwd_usr` VARCHAR(64) NOT NULL,
-  `type_usr` INT NOT NULL,
+  `type_usr` INT NOT NULL DEFAULT 3,
   `tk_usr` INT(6) NULL,
   PRIMARY KEY (`id_usr`),
   UNIQUE INDEX `id_user_UNIQUE` (`id_usr` ASC) VISIBLE)
@@ -71,6 +72,7 @@ CREATE TABLE IF NOT EXISTS `lockey_db`.`Shipping` (
   `stat_shpg` INT NOT NULL,
   `dts_shpg` DATETIME NOT NULL DEFAULT NOW(),
   `dte_shpg` DATETIME NULL,
+  `dtU _shpg` DATETIME NULL,
   `pr_shpg` DOUBLE NOT NULL,
   `hgt_shpg` DOUBLE NOT NULL,
   `wd_shpg` DOUBLE NOT NULL,
@@ -289,6 +291,10 @@ USE `lockey_db`;
 CREATE OR REPLACE VIEW `vUser` AS
     SELECT 
         id_usr,
+        CASE act_usr
+            WHEN 1 THEN 'ENABLED'
+            ELSE 'DISABLED'
+        END AS act_usr
         nm_usr,
         pwd_usr,
         em_usr,

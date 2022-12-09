@@ -13,7 +13,7 @@ const TOAST_TYPES = {
 	DANGER: 'danger'
 }
 
-function toast(message, type=TOAST_TYPES.DANGER, duration=5000) {
+function toast(message, type=TOAST_TYPES.DANGER, duration=3000) {
 	let toastElem = document.createElement('div');
 	
 	toastElem.classList.add('toast', `text-bg-${type}`, 'border-0');
