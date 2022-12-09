@@ -6,24 +6,37 @@ block content
             p.h1.title Detalles de envio
 
         div.detalles
-            p Número de guía: #{shipping.trk_shpg}
-            p Remitente: #{shipping.nm_contorg}
-            p Destinatario: #{shipping.nm_contdst}
-            p Lugar de origen: #{shipping.nm_lkrorg}
-            p Lugar de destino: #{shipping.nm_lkrdst}
-            p Tipo de envío: #{shipping.id_shpgtype}
-            p Fecha de creación: #{shipping.dts_shpg}
-            p Altura del paquete: #{shipping.hgt_shpg}
-            p Ancho del paquete: #{shipping.wd_shpg}
-            p Profundidad del paquete: #{shipping.deep_shpg}
-            p Peso del paquete: #{shipping.wt_shpg}
-            p Precio: #{shipping.pr_shpg}
-            p Metodo de pago: #{shipping.num_wal}
+            p Número de guía: 
+                small.text-muted #{shipping.trk_shpg}
+            p Remitente: 
+                small.text-muted #{shipping.nm_contorg}
+            p Destinatario: 
+                small.text-muted #{shipping.nm_contdst}
+            p Lugar de origen: 
+                small.text-muted #{shipping.nm_lkrorg}
+            p Lugar de destino: 
+                small.text-muted #{shipping.nm_lkrdst}
+            p Tipo de envío: 
+                small.text-muted #{shipping.nm_shpgtype}
+            p Fecha de creación: 
+                small.text-muted #{shipping.dts_shpg}
+            p Altura del paquete: 
+                small.text-muted #{shipping.hgt_shpg} cm
+            p Ancho del paquete: 
+                small.text-muted #{shipping.wd_shpg} cm
+            p Profundidad del paquete: 
+                small.text-muted #{shipping.deep_shpg} cm
+            p Peso del paquete: 
+                small.text-muted #{shipping.wt_shpg} kg
+            p Precio: 
+                small.text-muted $ #{shipping.pr_shpg} mx
+            p Metodo de pago: 
+                small.text-muted #{shipping.num_wal}
 
         .bg-secondary.d-flex.align-items-center(style="height: 50px;")
             p.h2.trayect Trayectoria
 
-        -let n = 3
+        -let n = shipping.stat_shpg
         .process
             ul.StepProgress
                 each num, key in  {1 : 'En espera de entrega', 2 : 'En espera de recolección', 3 : 'En tránsito', 4 : 'En espera de recepción', 5 : 'Completado', 6 : 'Almacén', 7 : 'Cancelado'}
