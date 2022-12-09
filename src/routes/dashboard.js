@@ -41,6 +41,13 @@ router.get('/envio/crearEnvio', (req,res,next) =>{
 	}
 });
 
+router.post('/envio/crearEnvio', (req,res,next) =>{
+	res.status(200).json({
+		response: "OK",
+		redirect: "panel/envio/crearEnvio/createSender"
+	})
+});
+
 router.get('/envio/crearEnvio/createSender', (req,res,next) =>{
 	res.render("createAddressee") 
 	if (req.session.user) {
