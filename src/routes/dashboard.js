@@ -55,26 +55,25 @@ router.get('/envio/crearEnvio', (req,res,next) =>{
 router.post('/envio/crearEnvio', (req,res,next) =>{
 	res.status(200).json({
 		response: "OK",
-		redirect: "panel/envio/crearEnvio/createSender"
+		redirect: "/panel/envio/crearEnvio/createSender"
 	})
 });
 
 router.get('/envio/crearEnvio/createSender', (req,res,next) =>{
-	res.render("createAddressee") 
+	res.render("createAddresse") 
 	if (req.session.user) {
-		res.render('createAddressee' , { title: 'sendiit - panel', path: req.path, user: req.session.user });
+		res.render('createAddresse' , { title: 'sendiit - panel', path: req.path, user: req.session.user });
 	} else {
 		res.redirect('/');
 	}
 });
 
-router.get('/envio/crearEnvio/createSender/createAddressee', (req,res,next) =>{
-	res.render("createSize") 
-	if (req.session.user) {
-		res.render('createSize' , { title: 'sendiit - panel', path: req.path, user: req.session.user });
-	} else {
-		res.redirect('/');
-	}
+router.post('/envio/crearEnvio/createSender', (req,res,next) =>{
+	res.status(200).json({
+		response: "OK",
+		redirect: "/panel/envio/crearEnvio/createSender/createAddresse"
+	})
 });
+
 
 module.exports = router;

@@ -1,0 +1,50 @@
+extends layout
+
+block content
+    .container-fluid.px-4.mt-4.mb-3
+        // Destinatary
+        .row.col-fluid-12.rounded-4.bg-warning(style='--bs-bg-opacity: 0.5')
+            // Titulo
+            .col-12.rounded-4.d-flex.fs-3.justify-content-start.bg-warning
+                .row.align-items-center.col-4
+                    svg.bi.bi-plus-circle(xmlns='http://www.w3.org/2000/svg' width='33' height='33' fill='currentColor' viewbox='0 0 16 16')
+                        path(d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z')
+                        path(d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z')
+                p.fw-bold.pt-3 Agregar Destinatario
+            // Nombre del destinatario
+            .col-12.rounded.px-3.mb-3
+                label.form-label.mb-1.px-1.mt-3.fw-bold(for='NombreDestinatario') Nombre del destinatario
+                input#NombreDestinatario.form-control.rounded-4(type='text' placeholder='José Octavio...')
+            // Correo
+            .col-12.rounded.px-3.mb-3
+                label.form-label.mb-1.px-1.mt-0.fw-bold(for='Correo') Correo
+                input#Correo.form-control.rounded-4(type='email' placeholder='name@example.com...')
+            // Numero
+            .col-12.rounded.px-3.mb-3
+                label.form-label.mb-1.px-1.mt-0.fw-bold(for='telefono') T&eacute;lefono
+                input#telefono.form-control.rounded-4(type='number' placeholder='+52 55...')
+            // Guardar destinatario
+        .col-12.rounded.px-3.mb-3
+            .form-check
+                input#flexCheckDefault.form-check-input(role='button' type='checkbox' value='')
+                label.form-check-label.fw-bold(role='button' for='flexCheckDefault')
+                    | Guardar destinatario
+        // Emails
+        .row.col-fluid-12.mt-3
+            h4 Recientemente
+            .col-12.bg-secondary.p-2.rounded-4(style='--bs-bg-opacity: 0.3')
+                p.fw-bold.my-0.px-4 Juanito Juarez
+                p.px-2.my-0.px-4 JuanitoJuarez@gmail.com
+            .col-12.bg-secondary.p-2.rounded-4.mt-2(style='--bs-bg-opacity: 0.3')
+                p.fw-bold.my-0.px-4 Juanito Juarez
+                p.px-2.my-0.px-4 JuanitoJuarez@gmail.com
+            .col-12.bg-secondary.p-2.rounded-4.mt-2(style='--bs-bg-opacity: 0.3')
+                p.fw-bold.my-0.px-4 Juanito Juarez
+                p.px-2.my-0.px-4 JuanitoJuarez@gmail.com
+        .d-grid.gap-4
+            .row.col-fluid.mt-1.mx-1
+                button.btn.btn-primary.btn-lg.rounded-5.mt-3(type='submit' style='background-color: #212E46;')
+                    div(lass='fw-bold') Continuar
+
+    block scripts
+        script(src='/javascripts/validation.js')
