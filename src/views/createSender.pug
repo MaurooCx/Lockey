@@ -4,24 +4,28 @@ block content
     .container-fluid
         h6.container.text-center.fs-4 Datos del remitente
         .row.col-fluid-12.rounded-4
-            form.col-12.rounded.px-3.mb-3.needs-validation(novalidate='' method='post' action='/panel/envio/crearEnvio')
+            form.needs-validation.col-12.rounded.px-3.mb-3.needs-validation(novalidate method='post' action='/panel/envio/crearEnvio')
                 div
                     label.form-label.mb-1.px-1.mt-3.fw-bold(for='NombreDestinatario') Nombre del remitente
-                    input#NombreDestinatario.form-control.rounded-4(type='text' placeholder='Juan Daniel...' required='')
+                    input#NombreDestinatario.form-control.rounded-4(type='text' placeholder='Juan Daniel...' required name="name")
                     .invalid-feedback
-                        | Es necesario poner el nombre
-                label.form-label.mb-1.px-1.mt-3.fw-bold(for='Correo') Correo
-                input#Correo.form-control.rounded-4(type='text' placeholder='Ingrese un correo' required='')
-                .invalid-feedback
-                    | Es necesario un correo
-                label.form-label.mb-1.px-1.mt-3.fw-bold(for='Numtelefono') Telefono
-                input#Numtelefono.form-control.rounded-4(type='tel' placeholder='Ingrese un numero' required='')
-                .invalid-feedback
-                    | Es necesario un numero telefonico
+                        | Es necesario un nombre
+                    label.form-label.mb-1.px-1.mt-3.fw-bold(for='Correo') Correo
+                    input#Correo.form-control.rounded-4(type='text' placeholder='Ingrese un correo' required name="email")
+                    .invalid-feedback
+                        | Es necesario un correo
+                    label.form-label.mb-1.px-1.mt-3.fw-bold(for='Numtelefono') Telefono
+                    input#Numtelefono.form-control.rounded-4(type='tel' placeholder='Ingrese un numero' required name="tel")
+                    .invalid-feedback
+                        | Es necesario un numero telefonico
+                    .col-12.rounded.px-3.mb-3.mt-3
+                        .form-check
+                            input#flexCheckDefault.form-check-input(role='button' type='checkbox' value='')
+                            label.form-check-label.fw-bold(role='button' for='flexCheckDefault')
+                            | Guardar destinatario
                 .d-grid.gap-4
                     .row.col-fluid.mt-1.mx-1
                     button.btn.btn-primary.btn-lg.rounded-5.mt-3(type='submit' style='background-color: #F9D950;' data-bs-toggle='modal')
                         .fw-bold(style='color:#212E46') Continuar
-
-    block scripts
-        script(src='/javascripts/validation.js')
+block scripts
+    script(src='/javascripts/validation.js')

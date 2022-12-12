@@ -153,7 +153,62 @@ const db = {
 		});
 	},
 
+	getContact:(id_usr,email,tel) =>{ //modifique
+		return new Promise((resolve, reject) => {
+			con.query('SELECT * FROM Contact  WHERE id_usr= ? and em_cont= ? and tel_cont= ?', [id_usr, email, tel], (err, results) => {
+				if (err) reject(err);
+				else resolve(results);
+			});
+		});
+	},
 
+
+	createContact: (idUser,name, email, tel) => { //modifique
+		return new Promise((resolve, reject) => {			
+			// check if email is already in use			
+			db.getContact(idUser,email,tel).then((results) => {
+				if (results.length > 0) reject('El contacto ya ha sido registrado');
+				else {
+					// create new user
+					con.query('INSERT INTO Contact VALUES (DEFAULT, ?, ?, ?, ?)', [idUser, name ,email, tel], (err, results) => {
+						if (err) reject(err);
+						else resolve(results);
+					});
+				}
+			}).catch((err) => {
+				reject(err);
+			});
+		});
+	},
+
+	getAdress:(id_usr,email,tel) =>{ //modifique
+		return new Promise((resolve, reject) => {
+			con.query('SELECT * FROM Contact  WHERE id_usr= ? and em_cont= ? and tel_cont= ?', [id_usr, email, tel], (err, results) => {
+				if (err) reject(err);
+				else resolve(results);
+			});
+		});
+	},
+
+	createAddresse: (idUser,name, email, tel) => { //modifique
+		return new Promise((resolve, reject) => {
+			
+			// check if email is already in use
+			
+			db.getAdress(idUser,email,tel).then((results) => {
+				if (results.length > 0) reject('El contacto ya ha sido registrado');
+				else {
+					// create new user
+					con.query('INSERT INTO Contact VALUES (DEFAULT, ?, ?, ?, ?)', [idUser, name ,email, tel], (err, results) => {
+						if (err) reject(err);
+						else resolve(results);
+					});
+				}
+			}).catch((err) => {
+				reject(err);
+			});
+		});
+	},
 
 };
 
