@@ -23,9 +23,26 @@ block content
                             input#flexCheckDefault.form-check-input(role='button' type='checkbox' value='')
                             label.form-check-label.fw-bold(role='button' for='flexCheckDefault')
                             | Guardar destinatario
+                    .row.col-fluid.mt-1.mx-1
+                        button.btn.btn-primary.btn-lg.rounded-5.mt-3(type='submit' style='background-color: #F9D950;' data-bs-toggle='modal')
+                            .fw-bold(style='color:#212E46') Continuar
+                            
+            .row.col-fluid-12.mt-3
+                h4 Recientemente
+                .col-12.bg-secondary.p-2.rounded-4(style='--bs-bg-opacity: 0.3')
+                    p.fw-bold.my-0.px-4 Juanito Juarez
+                    p.px-2.my-0.px-4 JuanitoJuarez@gmail.com
+                .col-12.bg-secondary.p-2.rounded-4.mt-2(style='--bs-bg-opacity: 0.3')
+                    p.fw-bold.my-0.px-4 Juanito Juarez
+                    p.px-2.my-0.px-4 JuanitoJuarez@gmail.com
+                .col-12.rounded.px-3.mb-3
+                    button.btn.btn-primary.btn-sm.mt-3.rounded-pill(type='submit' style='background-color: #212E46;')
+                        .fw-bold.my-0.px-4(style='color: #ffffff;') Ver todos
                 .d-grid.gap-4
                     .row.col-fluid.mt-1.mx-1
                     button.btn.btn-primary.btn-lg.rounded-5.mt-3(type='submit' style='background-color: #F9D950;' data-bs-toggle='modal')
                         .fw-bold(style='color:#212E46') Continuar
+
+
 block scripts
     script(src='/javascripts/validation.js')
