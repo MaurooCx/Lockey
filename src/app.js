@@ -21,6 +21,7 @@ const loader = new Loader(apiOptions);
 
 loader.load().then(() => {
 	console.log('Maps fue cargado exitosamente');
+	
   });
 
 // view engine setup jaddas
