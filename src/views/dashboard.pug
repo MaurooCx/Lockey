@@ -1,9 +1,9 @@
 extends layout
 
 block content
-	.container
+	.bg-primary.pt-3
 		if user.type == 'ADMIN'
-			| Admin Dashboard
+			p.nameUser Admin Dashboard
 		else if user.type == 'DELIVER'
 			.row(data-masonry='{"percentPosition": true }' style='position: relative; height: 690px;')
 				.col-sm-6.col-lg-4.mb-4(style='position: absolute; left: 0%; top: 0px;')
@@ -15,13 +15,13 @@ block content
 								small.text-muted Last updated 3 mins ago
 				
 		else if user.type == 'CLIENT'
-			| hola
+			p.nameUser  Bienvenido #{user.name}
 		else
-			| Usuario desconocido
+			p.nameUser Usuario desconocido
 
 	.wrapper 
 		-
-			let datos = [
+			let pedingShipings = [
 				{
 				'stat_shpg': 'EN TRÁNSITO',
 				'trk_shpg': '202212150310001002'
@@ -40,7 +40,7 @@ block content
 				},
 			]
 
-		each val in datos
+		each val in pedingShipings
 			a.text-decoration-none(href='/panel/envio/detalles/'+val.trk_shpg)
 				.item.row.d-flex.align-items-center.justify-content-center
 					.col-4.p-0
