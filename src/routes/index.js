@@ -25,6 +25,7 @@ router.route('/identificacion')
 			if (results.length) {
 				if(results[0].act_usr == 'ENABLED'){
 					req.session.user = {
+						id: results[0].id_usr,
 						name: results[0].nm_usr,
 						email: results[0].em_usr,
 						type: results[0].type_usr,
@@ -126,6 +127,7 @@ router.route('/registro')
 		db.verifycode(email, VerifyNumber).then((results) => {
 			if (results.length) {
 				req.session.user = {
+					id: results[0].id_usr,
 					name: results[0].nm_usr,
 					email: results[0].em_usr,
 					type: results[0].type_usr
