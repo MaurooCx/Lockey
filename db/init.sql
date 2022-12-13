@@ -399,8 +399,17 @@ COMMIT;
 START TRANSACTION;
 USE `lockey_db`;
 INSERT INTO `lockey_db`.`Door` (`id_door`, `id_lkr`, `id_drtype`, `nm_door`, `stat_door`) VALUES (DEFAULT, 1, 2, 01, 1);
-INSERT INTO `lockey_db`.`Door` (`id_door`, `id_lkr`, `id_drtype`, `nm_door`, `stat_door`) VALUES (DEFAULT, 2, 3, 02, 2);
-INSERT INTO `lockey_db`.`Door` (`id_door`, `id_lkr`, `id_drtype`, `nm_door`, `stat_door`) VALUES (DEFAULT, 2, 1, 03, 3);
+INSERT INTO `lockey_db`.`Door` (`id_door`, `id_lkr`, `id_drtype`, `nm_door`, `stat_door`) VALUES (DEFAULT, 2, 3, 01, 2);
+INSERT INTO `lockey_db`.`Door` (`id_door`, `id_lkr`, `id_drtype`, `nm_door`, `stat_door`) VALUES (DEFAULT, 3, 1, 01, 3);
+INSERT INTO `lockey_db`.`Door` (`id_door`, `id_lkr`, `id_drtype`, `nm_door`, `stat_door`) VALUES (DEFAULT, 4, 2, 01, 1);
+INSERT INTO `lockey_db`.`Door` (`id_door`, `id_lkr`, `id_drtype`, `nm_door`, `stat_door`) VALUES (DEFAULT, 1, 3, 02, 2);
+INSERT INTO `lockey_db`.`Door` (`id_door`, `id_lkr`, `id_drtype`, `nm_door`, `stat_door`) VALUES (DEFAULT, 2, 1, 02, 1);
+INSERT INTO `lockey_db`.`Door` (`id_door`, `id_lkr`, `id_drtype`, `nm_door`, `stat_door`) VALUES (DEFAULT, 3, 3, 02, 2);
+INSERT INTO `lockey_db`.`Door` (`id_door`, `id_lkr`, `id_drtype`, `nm_door`, `stat_door`) VALUES (DEFAULT, 4, 1, 02, 1);
+INSERT INTO `lockey_db`.`Door` (`id_door`, `id_lkr`, `id_drtype`, `nm_door`, `stat_door`) VALUES (DEFAULT, 1, 3, 03, 2);
+INSERT INTO `lockey_db`.`Door` (`id_door`, `id_lkr`, `id_drtype`, `nm_door`, `stat_door`) VALUES (DEFAULT, 2, 1, 03, 1);
+INSERT INTO `lockey_db`.`Door` (`id_door`, `id_lkr`, `id_drtype`, `nm_door`, `stat_door`) VALUES (DEFAULT, 3, 3, 03, 2);
+INSERT INTO `lockey_db`.`Door` (`id_door`, `id_lkr`, `id_drtype`, `nm_door`, `stat_door`) VALUES (DEFAULT, 4, 1, 03, 1);
 
 COMMIT;
 
