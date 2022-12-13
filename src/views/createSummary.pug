@@ -2,7 +2,7 @@ extends layout
 
 block content
     .container.row.col-fluid-12.mt-3.mx-auto
-        h4.fw-bold Informacion de pago
+        h1.fw-bold Informacion de pago
         p Agregar o seleccionar tarjeta de credito o debito
         .col-12.bg-secondary.p-2.rounded-4.mx-1(style='--bs-bg-opacity: 0.2')
             .row
@@ -28,7 +28,7 @@ block content
                     .col-8.fw-bold.rounded-pill.btn-lg.fs-5.text-start Agregar tarjeta
         p(align='right')
             button.btn.btn-primary.rounded-5.mt-3(type='button' style='background-color: #212E46;')
-                .fw-bold Ver todos
+                .fw-bold(style='color: #FFFFFF') Ver todos
     .container.py-5
         h1.fw-bold Resumen del env&iacute;o
         .row.d-flex.justify-content-center
@@ -70,9 +70,10 @@ block content
                 | para depositar el paquete en el locker, de lo contrario se
                 | cancelar&aacute; la solicitud y no habr&aacute; devoluci&oacute;n.
         .col.form-outline.mb-3
+
     .d-grid.gap-2.col-6.mx-auto
         button.btn.btn-primary.btn-lg.rounded-5.px-2.my-0.px-4(type='submit' style='background-color: #212E46;')
-            .fw-bold Confirmar envio
+            .fw-bold(style='color: #FFFFFF') Confirmar envio
 
 
 block scripts
